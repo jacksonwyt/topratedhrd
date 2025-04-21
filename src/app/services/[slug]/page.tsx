@@ -6,6 +6,14 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, HelpCircle } from 'lucide-react'; // Or appropriate icons
 
+// Define props interface
+interface ServicePageProps {
+  params: {
+    slug: string;
+  };
+  // searchParams?: { [key: string]: string | string[] | undefined }; // Include if you use searchParams
+}
+
 // Generate static paths for each service
 export async function generateStaticParams() {
   return servicesData.map((service) => ({
@@ -45,7 +53,7 @@ export async function generateMetadata(
 }
 
 // The Service Page Component
-export default function ServicePage({ params }: { params: { slug: string } }) {
+export default function ServicePage({ params }: ServicePageProps) {
   const service = getServiceBySlug(params.slug);
 
   if (!service) {
