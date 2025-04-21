@@ -2,12 +2,12 @@
 "use client"; // Required for state and event handlers
 
 import React, { useState } from 'react';
-// import dynamic from 'next/dynamic'; // Import dynamic
+import dynamic from 'next/dynamic'; // Import dynamic
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react'; // Import Loader2 for loading state
+import { X, Loader2 } from 'lucide-react'; // Import Loader2 for loading state
 
 // Dynamically import PortfolioGallery3D with SSR turned off
-/*
+
 const PortfolioGallery3D = dynamic(
   () => import('@/components/PortfolioGallery3D'),
   {
@@ -20,7 +20,7 @@ const PortfolioGallery3D = dynamic(
     ),
   }
 );
-*/
+
 
 // Portfolio Page Component
 export default function PortfolioPage() {
@@ -46,25 +46,9 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Main Content Section - Inline Gallery Preview */}
-      {/* This section is hidden when the fullscreen overlay is active */}
-      <section className={`py-16 md:py-24 ${isFullscreenOpen ? 'hidden' : ''}`}>
-        <div className="container mx-auto max-w-6xl px-4 space-y-12">
-          {/* Gallery Section */}
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight mb-8 text-center">
-              Project Showcase Preview
-            </h2>
-            {/* Container for the inline gallery preview */}
-            {/* Ensure this container provides the necessary height for the Canvas */}
-            {/* The background gradient will show through if the Canvas is transparent */}
-            <div className="h-[70vh] w-full bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden relative">
-              {/* The updated PortfolioGallery3D component fits right here */}
-              {/* <PortfolioGallery3D /> */}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Main Content Section - REMOVED Inline Gallery Preview */}
+      {/* This section is intentionally left empty or can contain other content */}
+      {/* <section className={`py-16 md:py-24 ${isFullscreenOpen ? 'hidden' : ''}`}> ... </section> */}
 
       {/* --- Fullscreen Gallery Overlay --- */}
       {/* Conditionally rendered when isFullscreenOpen is true */}
@@ -83,10 +67,8 @@ export default function PortfolioPage() {
           {/* Container for the fullscreen gallery */}
           {/* The Canvas inside PortfolioGallery3D will expand to fill this */}
           <div className="w-full h-full">
-            {/* The updated PortfolioGallery3D component is used here as well */}
-            {/* Note: This renders a second instance of the 3D gallery, which is less performant */}
-            {/* than reusing the instance, but simpler to implement with this structure. */}
-            {/* <PortfolioGallery3D /> */}
+            {/* The updated PortfolioGallery3D component is used here */}
+            <PortfolioGallery3D />
           </div>
         </div>
       )}
