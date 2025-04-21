@@ -2,11 +2,12 @@
 "use client"; // Required for state and event handlers
 
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic'; // Import dynamic
+// import dynamic from 'next/dynamic'; // Import dynamic
 import { Button } from '@/components/ui/button';
-import { X, Loader2 } from 'lucide-react'; // Import Loader2 for loading state
+import { X } from 'lucide-react'; // Import Loader2 for loading state
 
 // Dynamically import PortfolioGallery3D with SSR turned off
+/*
 const PortfolioGallery3D = dynamic(
   () => import('@/components/PortfolioGallery3D'),
   {
@@ -19,6 +20,7 @@ const PortfolioGallery3D = dynamic(
     ),
   }
 );
+*/
 
 // Portfolio Page Component
 export default function PortfolioPage() {
@@ -58,7 +60,7 @@ export default function PortfolioPage() {
             {/* The background gradient will show through if the Canvas is transparent */}
             <div className="h-[70vh] w-full bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden relative">
               {/* The updated PortfolioGallery3D component fits right here */}
-              <PortfolioGallery3D />
+              {/* <PortfolioGallery3D /> */}
             </div>
           </div>
         </div>
@@ -84,7 +86,7 @@ export default function PortfolioPage() {
             {/* The updated PortfolioGallery3D component is used here as well */}
             {/* Note: This renders a second instance of the 3D gallery, which is less performant */}
             {/* than reusing the instance, but simpler to implement with this structure. */}
-            <PortfolioGallery3D />
+            {/* <PortfolioGallery3D /> */}
           </div>
         </div>
       )}
