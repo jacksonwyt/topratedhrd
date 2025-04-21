@@ -15,7 +15,7 @@ interface ServicePageProps {
 }
 
 // Generate static paths for each service
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return servicesData.map((service) => ({
     slug: service.slug,
   }));
@@ -28,7 +28,7 @@ function getServiceBySlug(slug: string): ServiceData | undefined {
 
 // Generate dynamic metadata
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
+  { params }: ServicePageProps,
   // parent: ResolvingMetadata // Removed unused parameter
 ): Promise<Metadata> {
   const slug = params.slug;
