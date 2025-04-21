@@ -53,7 +53,7 @@ export async function generateMetadata(
 }
 
 // The Service Page Component
-export default function ServicePage({ params }: ServicePageProps) {
+export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
 
   if (!service) {
