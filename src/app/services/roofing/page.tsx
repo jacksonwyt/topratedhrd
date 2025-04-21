@@ -1,63 +1,26 @@
 import { servicesData, ServiceData, ServiceDetail, ServiceFeature, ServiceFAQ } from '@/lib/data';
 import { notFound } from 'next/navigation';
-import { Metadata /*, ResolvingMetadata*/ } from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, HelpCircle } from 'lucide-react'; // Or appropriate icons
+import { CheckCircle, HelpCircle } from 'lucide-react';
 
-// Define props interface
-interface ServicePageProps {
-  params: {
-    slug: string;
-  };
-  // searchParams?: { [key: string]: string | string[] | undefined }; // Include if you use searchParams
-}
-
-// Generate static paths for each service
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return servicesData.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
-// Find service data by slug
 function getServiceBySlug(slug: string): ServiceData | undefined {
   return servicesData.find((service) => service.slug === slug);
 }
 
-// Generate dynamic metadata
-export async function generateMetadata(
-  { params }: ServicePageProps,
-  // parent: ResolvingMetadata // Removed unused parameter
-): Promise<Metadata> {
-  const slug = params.slug;
-  const service = getServiceBySlug(slug);
+const service = getServiceBySlug('roofing');
+export const metadata: Metadata = {
+  title: `${service?.title || 'Service'} — Top Rated HRD`,
+  description: service?.metaDescription || 'Service description.',
+};
+
+export default function RoofingPage() {
+  const service = getServiceBySlug('roofing');
 
   if (!service) {
-    // Metadata for not found page can be handled globally or here
-    return {
-      title: 'Service Not Found',
-    };
-  }
-
-  return {
-    title: `${service.title} — Top Rated HRD`,
-    description: service.metaDescription,
-    // openGraph: { // Optional: Add Open Graph data if needed
-    //   title: service.title,
-    //   description: service.metaDescription,
-    //   images: [service.heroImagePlaceholder],
-    // },
-  };
-}
-
-// The Service Page Component
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getServiceBySlug(params.slug);
-
-  if (!service) {
-    notFound(); // Trigger 404 page
+    notFound();
   }
 
   return (
@@ -70,7 +33,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           fill
           style={{ objectFit: 'cover' }}
           className="opacity-30"
-          priority // Load hero image faster
+          priority
         />
         <div className="relative z-10 container mx-auto max-w-5xl px-4">
           <Badge variant="secondary" className="mb-4">Our Services</Badge>
@@ -115,9 +78,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 {service.features.map((feature: ServiceFeature, index: number) => (
                   <li key={index} className="flex items-center text-sm">
                      <CheckCircle className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
-                     {feature.title} 
-                     {/* Optional: Add description as tooltip or below */}
-                     {/* <p className="text-xs text-muted-foreground">{feature.description}</p> */}
+                     {feature.title}
                   </li>
                 ))}
               </ul>
@@ -153,9 +114,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       )}
-
-      {/* Optional: Add a CTA section here */}
-
     </div>
   );
 } 
