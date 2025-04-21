@@ -2,11 +2,23 @@
 "use client"; // Required for state and event handlers
 
 import React, { useState } from 'react';
-// Correctly importing the separate, updated 3D gallery component
-import PortfolioGallery3D from '@/components/PortfolioGallery3D';
-// Assuming Shadcn Button and lucide-react icons are correctly installed and configured
+import dynamic from 'next/dynamic'; // Import dynamic
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import { X, Loader2 } from 'lucide-react'; // Import Loader2 for loading state
+
+// Dynamically import PortfolioGallery3D with SSR turned off
+const PortfolioGallery3D = dynamic(
+  () => import('@/components/PortfolioGallery3D'),
+  {
+    ssr: false,
+    loading: () => (
+      // Optional: Add a loading indicator
+      <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+        <Loader2 className="h-12 w-12 animate-spin text-white" />
+      </div>
+    ),
+  }
+);
 
 // Portfolio Page Component
 export default function PortfolioPage() {
