@@ -6,11 +6,6 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, HelpCircle } from 'lucide-react'; // Or appropriate icons
 
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
 // Generate static paths for each service
 export async function generateStaticParams() {
   return servicesData.map((service) => ({
@@ -25,7 +20,7 @@ function getServiceBySlug(slug: string): ServiceData | undefined {
 
 // Generate dynamic metadata
 export async function generateMetadata(
-  { params }: Props,
+  { params }: { params: { slug: string } },
   // parent: ResolvingMetadata // Removed unused parameter
 ): Promise<Metadata> {
   const slug = params.slug;
@@ -50,7 +45,7 @@ export async function generateMetadata(
 }
 
 // The Service Page Component
-export default function ServicePage({ params }: Props) {
+export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
 
   if (!service) {
