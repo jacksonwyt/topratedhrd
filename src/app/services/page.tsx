@@ -15,7 +15,7 @@ export default function ServicesListPage() {
       {/* Page Header */}
       <section className="w-full py-12 md:py-20 border-b">
         <div className="container mx-auto max-w-5xl px-4 text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 pb-2">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary pb-2">
             Our Services
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg mt-4">

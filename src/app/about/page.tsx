@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Page Header Section */}
-      <section className="py-20 md:py-28 lg:py-32 bg-gradient-to-r from-blue-50 via-white to-purple-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-violet-950/30">
+      <section className="py-20 md:py-28 lg:py-32">
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary">
             About TopRatedHRD

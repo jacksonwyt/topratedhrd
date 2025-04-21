@@ -37,7 +37,7 @@ export default function RoofingPage() {
         />
         <div className="relative z-10 container mx-auto max-w-5xl px-4">
           <Badge variant="secondary" className="mb-4">Our Services</Badge>
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 pb-2">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary pb-2">
             {service.headline}
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg mt-4">
@@ -77,7 +77,7 @@ export default function RoofingPage() {
               <ul className="space-y-3">
                 {service.features.map((feature: ServiceFeature, index: number) => (
                   <li key={index} className="flex items-center text-sm">
-                     <CheckCircle className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
+                     <CheckCircle className="h-4 w-4 mr-2 text-primary flex-shrink-0" />
                      {feature.title}
                   </li>
                 ))}

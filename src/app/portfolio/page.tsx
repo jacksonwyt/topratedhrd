@@ -31,15 +31,17 @@ export default function PortfolioPage() {
     <div className="bg-background text-foreground">
 
       {/* Page Header Section */}
-      <section className="py-20 md:py-28 lg:py-32 bg-gradient-to-r from-blue-50 via-white to-purple-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-violet-950/30">
+      {/* Updated to Gold Gradient - REMOVED */} 
+      <section className="py-20 md:py-28 lg:py-32"> {/* Removed gradient classes */}
         <div className="container mx-auto max-w-4xl px-4 text-center">
+          {/* h1 already uses text-primary, which is now gold */}
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary">
             Our Portfolio
           </h1>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground">
             Explore examples of our completed projects and craftsmanship.
           </p>
-          {/* Button to trigger fullscreen mode */}
+          {/* Button to trigger fullscreen mode - uses primary color */}
           <div className="mt-8">
             <Button onClick={() => setIsFullscreenOpen(true)}>View Fullscreen Gallery</Button>
           </div>

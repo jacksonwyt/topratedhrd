@@ -1,6 +1,5 @@
 import React from 'react';
 import { Award, Users, Clock } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { servicesData, ServiceData } from '@/lib/data';
 import { AnimatedServiceCard } from '@/components/AnimatedServiceCard';
@@ -10,9 +9,9 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full py-24 md:py-32 lg:py-40 xl:py-48 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-violet-950/30">
+      <section className="w-full py-24 md:py-32 lg:py-40 xl:py-48 bg-gradient-to-br from-white via-white to-purple dark:from-zinc-900 dark:via-zinc-950 dark:to-violet-950/30">
         <div className="container mx-auto max-w-5xl px-4 text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 pb-2">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-primary pb-2">
             Transforming Homes, Modernizing Lives
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl mt-4">
@@ -50,58 +49,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Sneak Peek Section */}
-      <section className="w-full py-12 md:py-24 bg-muted/40">
-        <div className="container mx-auto max-w-5xl px-4">
-          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Placeholder Project 1 */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-              <Image 
-                src="https://placehold.co/600x400/e2e8f0/64748b?text=Project+1" 
-                alt="Placeholder Project 1" 
-                width={600} height={400} 
-                className="object-cover w-full h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-4 text-white">
-                <h3 className="text-lg font-semibold">Kitchen Transformation</h3>
-                <p className="text-sm opacity-80">Modern and Functional</p>
-              </div>
-            </div>
-            {/* Placeholder Project 2 */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-              <Image 
-                src="https://placehold.co/600x400/cbd5e1/475569?text=Project+2" 
-                alt="Placeholder Project 2" 
-                width={600} height={400} 
-                className="object-cover w-full h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-4 text-white">
-                <h3 className="text-lg font-semibold">Bathroom Oasis</h3>
-                <p className="text-sm opacity-80">Spa-like Retreat</p>
-              </div>
-            </div>
-            {/* Placeholder Project 3 */}
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-              <Image 
-                src="https://placehold.co/600x400/e2e8f0/334155?text=Project+3" 
-                alt="Placeholder Project 3" 
-                width={600} height={400} 
-                className="object-cover w-full h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-4 text-white">
-                <h3 className="text-lg font-semibold">ADU Addition</h3>
-                <p className="text-sm opacity-80">Seamless Integration</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Why TopRated? Section */}
       <section className="w-full py-12 md:py-24 bg-background">
@@ -139,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="w-full py-16 md:py-28 bg-gradient-to-r from-blue-600 to-violet-600">
+      <section className="w-full py-16 md:py-28 bg-primary">
         <div className="container mx-auto max-w-5xl px-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground mb-4">
             Ready to Start Your Project?

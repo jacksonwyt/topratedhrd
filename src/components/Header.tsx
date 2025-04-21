@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -19,8 +20,15 @@ const Header = () => {
     <header className="bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-50 w-full shadow-sm">
       <nav className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         {/* Logo / Brand Name */}
-        <Link href="/" className="font-bold text-xl tracking-tight text-foreground hover:text-primary transition-colors">
-          TopRatedHRD
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/TRHRD_logo.png"
+            alt="Top Rated Home Remodel & Design Logo"
+            width={150}
+            height={40}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -29,7 +37,7 @@ const Header = () => {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
               {link.label}
             </Link>
