@@ -1,5 +1,3 @@
-import { ServiceFeature, ServiceDetail, ServiceFAQ, ServiceData } from './types'; // Assuming types might be defined elsewhere or need extraction
-
 // Define the structure for service data
 export interface ServiceFeature {
   title: string;
