@@ -19,11 +19,9 @@ export default function Home() {
             Expert home remodeling with a focus on quality craftsmanship and innovative design. Let&apos;s build your dream space.
           </p>
           <div className="mt-8">
-            <Link href="/contact" passHref legacyBehavior>
-              <Button asChild size="lg">
-                <a>
-                  Get a Free Quote
-                </a>
+            <Link href="/contact">
+              <Button size="lg">
+                Get a Free Quote
               </Button>
             </Link>
           </div>
@@ -38,7 +36,7 @@ export default function Home() {
           </h2>
           <div className="space-y-16">
             {servicesData.map((service: ServiceData, index: number) => (
-              <Link key={service.slug} href={`/services/${service.slug}`} className="block group" legacyBehavior={false}>
+              <Link key={service.slug} href={`/services/${service.slug}`} className="block group">
                 <AnimatedServiceCard
                   slug={service.slug}
                   title={service.title}
@@ -149,11 +147,9 @@ export default function Home() {
           <p className="text-lg text-primary-foreground/80 mb-8">
             Contact us today for a free consultation and quote.
           </p>
-          <Link href="/contact" passHref legacyBehavior>
-            <Button asChild variant="secondary" size="lg">
-              <a>
-                Contact Us
-              </a>
+          <Link href="/contact">
+            <Button variant="secondary" size="lg">
+              Contact Us
             </Button>
           </Link>
         </div>

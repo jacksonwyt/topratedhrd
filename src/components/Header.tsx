@@ -30,7 +30,7 @@ const Header = () => {
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
+              >
               {link.label}
             </Link>
           ))}
@@ -55,7 +55,6 @@ const Header = () => {
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
-
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-background border-t border-border py-4">
@@ -66,7 +65,7 @@ const Header = () => {
                 href={link.href}
                 className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
-              >
+                >
                 {link.label}
               </Link>
             ))}

@@ -16,7 +16,6 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-
       {/* Main Content Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-4xl px-4 space-y-12">
@@ -104,7 +103,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Let&apos;s discuss how we can bring your home remodeling ideas to life. Contact us today to schedule your initial consultation.
             </p>
-            <Link href="/contact">
+            <Link href="/contact" legacyBehavior>
               <span className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
                 Get In Touch
               </span>
