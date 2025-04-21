@@ -1,11 +1,10 @@
-import React from 'react';
-import { Paintbrush, Gem, Workflow, ShieldCheck, Rows, Square, Lamp, CookingPot, Hammer, Home, CheckCircle, Building } from 'lucide-react';
+import { ServiceFeature, ServiceDetail, ServiceFAQ, ServiceData } from './types'; // Assuming types might be defined elsewhere or need extraction
 
 // Define the structure for service data
 export interface ServiceFeature {
   title: string;
   description: string;
-  icon: string;
+  icon: string; // Keep the icon string type, the imported components were unused
 }
 
 export interface ServiceDetail {

@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
           [Privacy Policy Content Required]
         </p>
         <p className="text-gray-400">
-          The specific text for the website's privacy policy needs to be inserted here.
+          The specific text for the website&apos;s privacy policy needs to be inserted here.
           Please provide the content that outlines how user data is collected, used, and protected.
         </p>
         {/* TODO: Insert actual privacy policy text when available */}
