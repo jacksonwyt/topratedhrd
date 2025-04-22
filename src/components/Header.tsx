@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <>
       <header className="bg-black text-white border-b border-gray-700 sticky top-0 z-40 w-full shadow-sm">
-        <nav className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
+        <nav className="container mx-auto flex h-16 md:h-24 max-w-5xl items-center justify-between px-4">
           {/* Logo / Brand Name */}
           <Link href="/" className="flex items-center">
             <Image
@@ -28,7 +28,7 @@ const Header = () => {
               width={150}
               height={40}
               priority
-              className="h-10 w-auto"
+              className="h-10 md:h-16 w-auto"
             />
           </Link>
 

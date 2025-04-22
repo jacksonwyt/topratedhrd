@@ -71,7 +71,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-1">
         <div className="container mx-auto max-w-4xl px-4 space-y-4">
 
           {/* Contact Form Section */}
