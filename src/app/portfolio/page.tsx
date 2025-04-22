@@ -2,18 +2,19 @@
 "use client"; // Required for state and event handlers
 
 import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic'; // Import dynamic
+// import dynamic from 'next/dynamic'; // REMOVED - No longer needed
 // import Head from 'next/head'; // No longer using next/head here
 // import Script from 'next/script'; // Removed Script import
 import { Button } from '@/components/ui/button';
-import { X, Loader2 } from 'lucide-react'; // Import Loader2 for loading state
+import { X } from 'lucide-react'; // REMOVED Loader2 - No longer needed
 // Import portfolio data and types
 import { portfolioItems, getPortfolioCategories, PortfolioItem } from '@/lib/portfolioData';
 // Import the new Swiper component
 import PortfolioSwiperCarousel from '@/components/PortfolioSwiperCarousel'; 
 
 // Dynamically import PortfolioGallery3D with SSR turned off
-
+// REMOVE DYNAMIC IMPORT FOR PortfolioGallery3D
+/*
 const PortfolioGallery3D = dynamic(
   () => import('@/components/PortfolioGallery3D'),
   {
@@ -26,11 +27,12 @@ const PortfolioGallery3D = dynamic(
     ),
   }
 );
-
+*/
 
 // Portfolio Page Component
 export default function PortfolioPage() {
-  const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
+  // Rename state for clarity (optional, but good practice)
+  const [isSwiperFullscreenOpen, setIsSwiperFullscreenOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredImages, setFilteredImages] = useState<PortfolioItem[]>(portfolioItems);
   const categories = getPortfolioCategories();
@@ -93,7 +95,7 @@ export default function PortfolioPage() {
             {/* Button to trigger fullscreen mode - Updated Styling */}
             <div className="mt-8">
               <Button 
-                onClick={() => setIsFullscreenOpen(true)} 
+                onClick={() => setIsSwiperFullscreenOpen(true)}
                 variant="outline" 
                 className="border-amber-200 bg-black text-amber-300 hover:bg-amber-300 hover:text-black transition-colors duration-200"
               >
@@ -109,22 +111,24 @@ export default function PortfolioPage() {
 
         {/* --- Fullscreen Gallery Overlay --- */}
         {/* Keep dark overlay and white close button for contrast */}
-        {isFullscreenOpen && (
-          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center">
+        {isSwiperFullscreenOpen && (
+          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8">
             {/* Close Button for the overlay */}
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setIsFullscreenOpen(false)}
+              onClick={() => setIsSwiperFullscreenOpen(false)}
               className="absolute top-4 right-4 z-[51] text-white hover:bg-white/20"
               aria-label="Close fullscreen gallery"
             >
               <X className="h-6 w-6" />
             </Button>
-            {/* Container for the fullscreen gallery */}
-            <div className="w-full h-full">
+            {/* Container for the fullscreen gallery - Render Swiper here */}
+            {/* Adjust container width/height/styling as needed for Swiper */}
+            <div className="w-full max-w-5xl h-auto max-h-[80vh] bg-black/50 rounded-lg overflow-hidden relative">
               {/* PortfolioGallery3D should handle its own theme or inherit if possible */}
-              <PortfolioGallery3D />
+              {/* <PortfolioGallery3D /> RENDER SWIPER INSTEAD */}
+              <PortfolioSwiperCarousel images={filteredImages} />
             </div>
           </div>
         )}
