@@ -28,20 +28,11 @@ export default function BathroomRemodelingPage() {
 
   return (
     <div className="bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="relative w-full h-[40vh] md:h-[50vh] flex items-center justify-center text-center bg-muted overflow-hidden">
-        <Image
-          src={service.heroImagePlaceholder}
-          alt={`${service.title} hero image`}
-          fill
-          style={{ objectFit: 'cover' }}
-          className="opacity-30"
-          priority
-        />
-        <div className="relative z-10 container mx-auto max-w-5xl px-4">
-          <Badge variant="secondary" className="mb-4">Our Services</Badge>
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 pb-2">
-            {service.headline}
+      {/* Standardized Header Section */}
+      <section className="w-full py-12 md:py-20 border-b">
+        <div className="container mx-auto max-w-5xl px-4 text-center">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary pb-2">
+            {service.title}
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg mt-4">
             {service.description}
@@ -49,8 +40,23 @@ export default function BathroomRemodelingPage() {
         </div>
       </section>
 
+      {/* Service Image Section */}
+      <section className="w-full py-8 md:py-12">
+        <div className="container mx-auto max-w-5xl px-4">
+          <div className="relative aspect-video overflow-hidden rounded-lg">
+            <Image
+              src="/images/bath1.jpg"
+              alt={`${service.title} service image`}
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Main Content Section */}
-      <section className="w-full py-12 md:py-20">
+      <section className="w-full pt-0 pb-12 md:pt-0 md:pb-20">
         <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
           
           {/* Left/Main Column (Service Details) */}
