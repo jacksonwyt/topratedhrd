@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, Menu, X, Plus } from 'lucide-react';
+import { Phone, Mail, X, Plus } from 'lucide-react';
 import { useState } from 'react';
 
 const Header = () => {

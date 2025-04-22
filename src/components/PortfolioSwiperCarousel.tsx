@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image'; // Import the Image component
 // Core Swiper modules
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -45,12 +46,17 @@ export default function PortfolioSwiperCarousel({ images }: PortfolioSwiperCarou
       >
         {images.map((item) => (
           <SwiperSlide key={item.src}>
-            <img
+            <Image // Use next/image component
               src={item.src}
-              className="d-block w-full" // Use w-full instead of w-100
-              style={{ maxHeight: '500px', objectFit: 'cover' }}
               alt={item.alt}
-              loading="lazy" // Add lazy loading
+              // Decide on fill or width/height. Fill is often good for carousels.
+              fill // Use fill to cover the slide area
+              style={{ objectFit: 'cover' }} // Keep object-fit
+              className="d-block w-full" // Existing class, might not be needed with fill
+              // Removed loading="lazy" as next/image handles it
+              // Add sizes for optimization if known, otherwise use defaults
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Example sizes, adjust as needed
+              priority={images.indexOf(item) === 0} // Prioritize the first image for LCP
             />
             {/* Optional: Add captions within the SwiperSlide if needed */}
             {/* <div className="absolute bottom-0 left-0 bg-black/50 text-white p-4">{item.alt}</div> */}
