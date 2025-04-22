@@ -51,7 +51,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ imagePaths }) => {
         speed={20000} // Even slower transition speed (20 seconds)
         className="mySwiper image-carousel" // Add a class for potential custom styling
         style={{
-            // @ts-ignore - Workaround for CSS variable type issue
+            // @ts-expect-error - Workaround for CSS variable type issue
            "--swiper-wrapper-transition-timing-function": "linear", 
          }}
       >
