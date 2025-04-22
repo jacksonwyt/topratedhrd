@@ -59,7 +59,7 @@ export default function ContactPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Page Header Section */}
-      <section className="py-20 md:py-28 lg:py-32">
+      <section className="py-20 md:py-24 lg:py-28">
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary">
             Contact Us
@@ -72,7 +72,7 @@ export default function ContactPage() {
 
       {/* Main Content Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl px-4 space-y-12">
+        <div className="container mx-auto max-w-4xl px-4 space-y-4">
 
           {/* Contact Form Section */}
           <div>

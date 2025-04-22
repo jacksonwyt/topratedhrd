@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { servicesData } from '@/lib/data';
 import { Button } from '@/components/ui/button'; // Assuming you might want a button
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'; // Using Card for layout
@@ -29,24 +30,30 @@ export default function ServicesListPage() {
         <div className="container mx-auto max-w-5xl px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service) => (
-              <Card key={service.slug} className="flex flex-col">
-                <CardHeader>
+              <Card key={service.slug} className="flex flex-col overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 border border-border hover:border-primary rounded-lg">
+                <div className="relative w-full h-48">
+                  <Image
+                    src={service.cardImageUrl}
+                    alt={`${service.title} service image`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  />
+                </div>
+                <CardHeader className="p-4">
                   <CardTitle>
-                     {/* Make the title a link */}
-                    <Link href={`/services/${service.slug}`} className="hover:text-primary transition-colors">
+                    <Link href={`/services/${service.slug}`} className="hover:text-primary transition-colors group-hover:text-primary">
                       {service.title}
                     </Link>
-                   </CardTitle>
-                   <CardDescription className="line-clamp-3"> {/* Limit description lines */}
-                     {service.description}
-                   </CardDescription>
+                  </CardTitle>
                 </CardHeader>
-                 <CardContent className="flex-grow">
-                   {/* You could add a small image or icon here if available */}
-                   {/* <img src={service.thumbnailUrl} alt="" className="aspect-video object-cover rounded-md mb-4" /> */}
-                 </CardContent>
-                <CardFooter>
-                  <Button asChild variant="outline" size="sm">
+                <CardContent className="flex-grow p-4">
+                  <CardDescription className="line-clamp-3">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+                <CardFooter className="p-4">
+                  <Button asChild variant="outline" size="sm" className="transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <Link href={`/services/${service.slug}`}>Learn More</Link>
                   </Button>
                 </CardFooter>

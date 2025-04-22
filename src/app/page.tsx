@@ -9,8 +9,13 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full py-24 md:py-32 lg:py-40 xl:py-48 bg-gradient-to-br from-white via-white to-purple dark:from-zinc-900 dark:via-zinc-950 dark:to-violet-950/30">
-        <div className="container mx-auto max-w-5xl px-4 text-center">
+      <section 
+        className="relative w-full py-24 md:py-32 lg:py-40 xl:py-48 bg-[url('/skyline.jpg')] bg-cover bg-center"
+      >
+        {/* White Overlay for text readability */}
+        <div className="absolute inset-0 bg-white/70" /> 
+        <div className="container relative mx-auto max-w-5xl px-4 text-center z-10">
+          {/* Revert text colors */}
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-primary pb-2">
             Transforming Homes, Modernizing Lives
           </h1>
@@ -19,6 +24,7 @@ export default function Home() {
           </p>
           <div className="mt-8">
             <Link href="/contact">
+              {/* Revert button variant */}
               <Button size="lg">
                 Get a Free Quote
               </Button>
@@ -48,8 +54,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
 
       {/* Why TopRated? Section */}
       <section className="w-full py-12 md:py-24 bg-background">
