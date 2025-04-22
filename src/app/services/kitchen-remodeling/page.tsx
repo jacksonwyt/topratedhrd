@@ -141,7 +141,7 @@ export default function KitchenRemodelingPage() {
             Ready for Your Dream Kitchen?
           </h2>
           <p className="mx-auto max-w-[600px] md:text-lg mb-8 opacity-90">
-            Let's discuss how Top Rated HRD can transform your kitchen. Contact us today for a free consultation.
+            Let&apos;s discuss how Top Rated HRD can transform your kitchen. Contact us today for a free consultation.
           </p>
           <Button asChild size="lg" variant="secondary" className="bg-black text-amber-200 hover:bg-neutral-800">
             <Link href="/contact">Request Your Free Quote</Link>
