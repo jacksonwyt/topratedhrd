@@ -38,7 +38,7 @@ export default function PortfolioSwiperCarousel({ images }: PortfolioSwiperCarou
         className="portfolio-swiper rounded-lg overflow-hidden shadow-lg" // Add a class for potential global overrides + base styling
         style={{
           // Set Swiper CSS variables for theme colors (gold)
-          // @ts-ignore // Ignore TS warning for CSS variable assignment
+          // @ts-expect-error // Use expect-error instead of ignore
           '--swiper-pagination-color': 'var(--primary)', // Active pagination bullet color
           '--swiper-navigation-color': 'var(--primary)', // Default arrow color (will be overridden by custom elements)
         }}
