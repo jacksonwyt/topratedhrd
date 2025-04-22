@@ -19,10 +19,10 @@ const PortfolioGallery3D = dynamic(
   {
     ssr: false,
     loading: () => (
-      // Optional: Add a loading indicator
-      <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-        <Loader2 className="h-12 w-12 animate-spin text-white" />
-      </div>
+      // Optional: Add a loading indicator - Keep white on black overlay
+      (<div className="absolute inset-0 flex items-center justify-center bg-black/50">
+        <Loader2 className="h-12 w-12 animate-spin text-white" /> 
+      </div>)
     ),
   }
 );
@@ -51,25 +51,29 @@ export default function PortfolioPage() {
       {/* Removed direct Bootstrap CSS <link> tag */}
       {/* <link ... /> */}
 
-      {/* Main page content */}
-      <div className="bg-background text-foreground">
+      {/* Main page content - Apply black bg and amber text */}
+      <div className="bg-black text-amber-100 min-h-screen"> 
         <section className="py-10 md:py-16 lg:py-20">
           <div className="container mx-auto max-w-4xl px-4 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-amber-200" style={{ WebkitTextFillColor: '#fde68a' }}>
               Our Portfolio
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-muted-foreground">
+            <p className="mt-4 text-lg md:text-xl text-amber-100/80" style={{ WebkitTextFillColor: '#fef3c7' }}>
               Explore examples of our completed projects and craftsmanship.
             </p>
 
-            {/* --- Category Filter Buttons --- */}
+            {/* --- Category Filter Buttons - Updated Styling --- */}
             <div className="my-8 flex justify-center gap-2 flex-wrap">
               {categories.map((category) => (
                 <Button
                   key={category}
-                  variant={selectedCategory === category ? 'default' : 'outline'} 
+                  // Use amber for the active (default) state, outline for inactive
+                  variant={selectedCategory === category ? 'default' : 'outline'}
                   onClick={() => setSelectedCategory(category)}
-                  className={selectedCategory === category ? 'border-primary' : 'border-border'} 
+                  className={`transition-colors duration-200 
+                    ${selectedCategory === category 
+                      ? 'bg-amber-300 text-black hover:bg-amber-400 border-amber-300' 
+                      : 'bg-black border-amber-200 text-amber-300 hover:bg-amber-300/10 hover:text-amber-200 hover:border-amber-400'}`}
                 >
                   {category}
                 </Button>
@@ -81,14 +85,20 @@ export default function PortfolioPage() {
              {filteredImages.length > 0 ? (
                <PortfolioSwiperCarousel images={filteredImages} /> 
              ) : (
-               <p className="text-muted-foreground italic">No images found for the selected category.</p>
+               <p className="text-amber-100/70 italic">No images found for the selected category.</p> 
              )}
             </div>
             {/* --- End Swiper Carousel --- */}
 
-            {/* Button to trigger fullscreen mode */}
+            {/* Button to trigger fullscreen mode - Updated Styling */}
             <div className="mt-8">
-              <Button onClick={() => setIsFullscreenOpen(true)}>View Fullscreen Gallery</Button>
+              <Button 
+                onClick={() => setIsFullscreenOpen(true)} 
+                variant="outline" 
+                className="border-amber-200 bg-black text-amber-300 hover:bg-amber-300 hover:text-black transition-colors duration-200"
+              >
+                View Fullscreen Gallery
+              </Button>
             </div>
           </div>
         </section>
@@ -98,7 +108,7 @@ export default function PortfolioPage() {
         {/* <section className={`py-16 md:py-24 ${isFullscreenOpen ? 'hidden' : ''}`}> ... </section> */}
 
         {/* --- Fullscreen Gallery Overlay --- */}
-        {/* Conditionally rendered when isFullscreenOpen is true */}
+        {/* Keep dark overlay and white close button for contrast */}
         {isFullscreenOpen && (
           <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center">
             {/* Close Button for the overlay */}
@@ -112,9 +122,8 @@ export default function PortfolioPage() {
               <X className="h-6 w-6" />
             </Button>
             {/* Container for the fullscreen gallery */}
-            {/* The Canvas inside PortfolioGallery3D will expand to fill this */}
             <div className="w-full h-full">
-              {/* The updated PortfolioGallery3D component is used here */}
+              {/* PortfolioGallery3D should handle its own theme or inherit if possible */}
               <PortfolioGallery3D />
             </div>
           </div>

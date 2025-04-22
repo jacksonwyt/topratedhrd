@@ -57,7 +57,6 @@ const Header = () => {
           </div>
         </nav>
       </header>
-
       {/* Mobile FAB Button */}
       <button
         className="md:hidden fixed bottom-6 right-6 z-50 p-4 bg-primary text-primary-foreground rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-transform hover:scale-110"
@@ -66,7 +65,6 @@ const Header = () => {
       >
         {isMenuOpen ? <X className="h-6 w-6" /> : <Plus className="h-6 w-6" />}
       </button>
-
       {/* Full-Screen Mobile Navigation Menu Overlay */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 z-50 bg-black text-white flex flex-col items-center justify-center p-6">
@@ -81,7 +79,11 @@ const Header = () => {
 
           {/* Logo at the top of the overlay */}
           <div className="mb-12"> {/* Add margin below the logo */}
-            <Link href="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href="/"
+              className="flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+              >
               <Image
                 src="/images/TRHRD_logo.png"
                 alt="Top Rated Home Remodel & Design Logo"
@@ -100,7 +102,7 @@ const Header = () => {
                 href={link.href}
                 className="text-2xl font-medium text-white hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
-              >
+                >
                 {link.label}
               </Link>
             ))}

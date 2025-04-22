@@ -47,7 +47,10 @@ export function ServicesGrid({ services }: ServicesGridProps) {
             </div>
             <CardHeader className="p-4">
               <CardTitle>
-                <Link href={`/services/${service.slug}`} className="group-hover:text-primary transition-colors">
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group-hover:text-primary transition-colors"
+                  legacyBehavior>
                   {service.title}
                 </Link>
               </CardTitle>
