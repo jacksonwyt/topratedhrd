@@ -14,11 +14,12 @@ import 'swiper/css/pagination';
 
 interface PortfolioSwiperCarouselProps {
   images: PortfolioItem[];
+  isFullscreen?: boolean;
 }
 
-export default function PortfolioSwiperCarousel({ images }: PortfolioSwiperCarouselProps) {
+export default function PortfolioSwiperCarousel({ images, isFullscreen = false }: PortfolioSwiperCarouselProps) {
   return (
-    <div className="relative group"> {/* Added relative and group for custom navigation */}
+    <div className={`relative group ${isFullscreen ? 'h-full w-full' : ''}`}>
       <Swiper
         // Install modules
         modules={[Navigation, Pagination]}
@@ -36,30 +37,34 @@ export default function PortfolioSwiperCarousel({ images }: PortfolioSwiperCarou
             return `<span class="${className} inline-block w-3 h-3 rounded-full mx-1 cursor-pointer bg-gray-500 hover:bg-primary"></span>`;
           },
         }}
-        className="portfolio-swiper rounded-lg overflow-hidden shadow-lg aspect-video" // Add aspect-video + a class for potential global overrides + base styling
+        className={`portfolio-swiper rounded-lg overflow-hidden shadow-lg ${
+          isFullscreen ? 'h-full' : 'aspect-video'
+        }`}
         style={{
           // Set Swiper CSS variables for theme colors (gold)
           // @ts-expect-error // Use expect-error instead of ignore
           '--swiper-pagination-color': 'var(--primary)', // Active pagination bullet color
           '--swiper-navigation-color': 'var(--primary)', // Default arrow color (will be overridden by custom elements)
-        }}
+        } as React.CSSProperties}
       >
         {images.map((item) => (
-          <SwiperSlide key={item.src}>
-            <Image // Use next/image component
-              src={item.src}
-              alt={item.alt}
-              // Decide on fill or width/height. Fill is often good for carousels.
-              fill // Use fill to cover the slide area
-              style={{ objectFit: 'cover' }} // Keep object-fit
-              className="d-block w-full" // Existing class, might not be needed with fill
-              // Removed loading="lazy" as next/image handles it
-              // Add sizes for optimization if known, otherwise use defaults
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Example sizes, adjust as needed
-              priority={images.indexOf(item) === 0} // Prioritize the first image for LCP
-            />
-            {/* Optional: Add captions within the SwiperSlide if needed */}
-            {/* <div className="absolute bottom-0 left-0 bg-black/50 text-white p-4">{item.alt}</div> */}
+          <SwiperSlide key={item.src} className={isFullscreen ? 'h-full' : ''}>
+            <div className={`relative ${isFullscreen ? 'h-full' : 'aspect-video'}`}>
+              <Image // Use next/image component
+                src={item.src}
+                alt={item.alt}
+                // Decide on fill or width/height. Fill is often good for carousels.
+                fill // Use fill to cover the slide area
+                style={{ objectFit: 'contain' }} // Keep object-fit
+                className={`d-block w-full ${isFullscreen ? 'object-contain' : 'object-cover'}`}
+                // Removed loading="lazy" as next/image handles it
+                // Add sizes for optimization if known, otherwise use defaults
+                sizes={isFullscreen ? '100vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+                priority={images.indexOf(item) === 0} // Prioritize the first image for LCP
+              />
+              {/* Optional: Add captions within the SwiperSlide if needed */}
+              {/* <div className="absolute bottom-0 left-0 bg-black/50 text-white p-4">{item.alt}</div> */}
+            </div>
           </SwiperSlide>
         ))}
 

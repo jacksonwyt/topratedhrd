@@ -11,6 +11,7 @@ import { X } from 'lucide-react'; // REMOVED Loader2 - No longer needed
 import { portfolioItems, getPortfolioCategories, PortfolioItem } from '@/lib/portfolioData';
 // Import the new Swiper component
 import PortfolioSwiperCarousel from '@/components/PortfolioSwiperCarousel'; 
+import Link from 'next/link';
 
 // Dynamically import PortfolioGallery3D with SSR turned off
 // REMOVE DYNAMIC IMPORT FOR PortfolioGallery3D
@@ -53,14 +54,14 @@ export default function PortfolioPage() {
       {/* Removed direct Bootstrap CSS <link> tag */}
       {/* <link ... /> */}
 
-      {/* Main page content - Apply black bg and amber text */}
-      <div className="bg-black text-amber-100 min-h-screen"> 
+      {/* Main page content - Apply white bg and gray text */}
+      <div className="bg-white text-gray-600 min-h-screen"> 
         <section className="py-10 md:py-16 lg:py-20">
           <div className="container mx-auto max-w-4xl px-4 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-amber-200" style={{ WebkitTextFillColor: '#fde68a' }}>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-black">
               Our Portfolio
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-amber-100/80" style={{ WebkitTextFillColor: '#fef3c7' }}>
+            <p className="mt-4 text-lg md:text-xl text-gray-600">
               Explore examples of our completed projects and craftsmanship.
             </p>
 
@@ -74,8 +75,8 @@ export default function PortfolioPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`transition-colors duration-200 
                     ${selectedCategory === category 
-                      ? 'bg-amber-300 text-black hover:bg-amber-400 border-amber-300' 
-                      : 'bg-black border-amber-200 text-amber-300 hover:bg-amber-300/10 hover:text-amber-200 hover:border-amber-400'}`}
+                      ? 'bg-amber-200 text-black hover:bg-amber-300 border-amber-200' 
+                      : 'bg-white border-amber-200 text-gray-700 hover:bg-amber-50 hover:text-black hover:border-amber-300'}`}
                 >
                   {category}
                 </Button>
@@ -83,11 +84,11 @@ export default function PortfolioPage() {
             </div>
 
             {/* --- Swiper Carousel --- */}
-            <div key={selectedCategory} className="container mx-auto max-w-4xl px-4 mb-8">
+            <div key={selectedCategory} className="container mx-auto max-w-6xl px-2 mb-8">
              {filteredImages.length > 0 ? (
                <PortfolioSwiperCarousel images={filteredImages} /> 
              ) : (
-               <p className="text-amber-100/70 italic">No images found for the selected category.</p> 
+               <p className="text-gray-500 italic">No images found for the selected category.</p> 
              )}
             </div>
             {/* --- End Swiper Carousel --- */}
@@ -97,7 +98,7 @@ export default function PortfolioPage() {
               <Button 
                 onClick={() => setIsSwiperFullscreenOpen(true)}
                 variant="outline" 
-                className="border-amber-200 bg-black text-amber-300 hover:bg-amber-300 hover:text-black transition-colors duration-200"
+                className="border-amber-200 bg-white text-gray-700 hover:bg-amber-200 hover:text-black transition-colors duration-200"
               >
                 View Fullscreen Gallery
               </Button>
@@ -110,9 +111,8 @@ export default function PortfolioPage() {
         {/* <section className={`py-16 md:py-24 ${isFullscreenOpen ? 'hidden' : ''}`}> ... </section> */}
 
         {/* --- Fullscreen Gallery Overlay --- */}
-        {/* Keep dark overlay and white close button for contrast */}
         {isSwiperFullscreenOpen && (
-          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8">
+          <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
             {/* Close Button for the overlay */}
             <Button
               variant="ghost"
@@ -123,15 +123,27 @@ export default function PortfolioPage() {
             >
               <X className="h-6 w-6" />
             </Button>
-            {/* Container for the fullscreen gallery - Render Swiper here */}
-            {/* Adjust container width/height/styling as needed for Swiper */}
-            <div className="w-full max-w-5xl h-auto max-h-[80vh] bg-black/50 rounded-lg overflow-hidden relative">
-              {/* PortfolioGallery3D should handle its own theme or inherit if possible */}
-              {/* <PortfolioGallery3D /> RENDER SWIPER INSTEAD */}
-              <PortfolioSwiperCarousel images={filteredImages} />
+            {/* Container for the fullscreen gallery */}
+            <div className="w-full h-screen flex items-center justify-center">
+              <PortfolioSwiperCarousel images={filteredImages} isFullscreen={true} />
             </div>
           </div>
         )}
+
+        {/* CTA Section with amber background */}
+        <section className="w-full py-16 bg-amber-200">
+          <div className="container mx-auto max-w-4xl px-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-black mb-6">
+              Ready to Transform Your Space?
+            </h2>
+            <p className="mx-auto max-w-[600px] text-gray-700 md:text-lg mb-8">
+              Let&apos;s bring your vision to life. Contact us today to start your project.
+            </p>
+            <Button asChild className="bg-black text-white hover:bg-gray-800">
+              <Link href="/contact">Get Started Today</Link>
+            </Button>
+          </div>
+        </section>
       </div>
 
       {/* Removed Bootstrap JS Bundle <Script> tag */}

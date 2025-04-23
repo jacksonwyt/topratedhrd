@@ -5,6 +5,7 @@ import { Award, Users, Clock, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { servicesData, ServiceData } from '@/lib/data';
 import ImageCarousel from '@/components/ImageCarousel';
+import Image from 'next/image';
 
 // Define the image paths
 const carouselImages = [
@@ -25,88 +26,175 @@ const carouselImages = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section - Updated: Black BG, Gold Text */}
+      {/* Hero Section - White BG, Black Text */}
       <section 
-        className="relative w-full py-24 md:py-32 lg:py-40 xl:py-48 bg-black"
+        className="relative w-full py-24 md:py-32 lg:py-40 xl:py-48 bg-white"
       >
-        {/* Removed semi-transparent black overlay */}
-        {/* <div className="absolute inset-0 bg-black/50" /> */}
         <div className="container relative mx-auto max-w-5xl px-4 text-center z-20 flex flex-col items-center">
           <h1 
-            className="relative text-4xl font-bold tracking-tighter leading-tight sm:text-5xl md:text-6xl lg:text-7xl text-amber-200 pb-4 mb-4 z-20"
-            style={{ WebkitTextFillColor: '#fde68a' }}
+            className="relative text-4xl font-bold tracking-tighter leading-tight sm:text-5xl md:text-6xl lg:text-7xl text-black pb-4 mb-4 z-20"
           >
             Transforming Homes, Modernizing Lives
           </h1>
           <p 
-            className="relative mx-auto max-w-[700px] text-amber-100 md:text-xl mt-0 mb-0 z-20"
-            style={{ WebkitTextFillColor: '#fef3c7' }}
+            className="relative mx-auto max-w-[700px] text-gray-600 md:text-xl mt-0 mb-0 z-20"
           >
             Expert home remodeling with a focus on quality craftsmanship and innovative design. Let&apos;s build your dream space.
           </p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center px-8 py-3 text-lg font-medium bg-amber-200 text-black hover:bg-amber-100 transition-colors duration-200 rounded-lg"
+          >
+            Get Started Today
+          </Link>
         </div>
       </section>
-      {/* Image Carousel Section */}
-      <section className="w-full py-8 md:py-12 bg-black">
+
+      {/* Image Carousel Section - White */}
+      <section className="w-full py-8 md:py-12 bg-white border-t border-amber-200">
         <ImageCarousel imagePaths={carouselImages} />
       </section>
-      {/* Why TopRated? Section - Moved Up */}
-      <section className="w-full py-12 md:py-24 bg-black">
+
+      {/* Why TopRated? Section - White */}
+      <section className="w-full py-12 md:py-24 bg-white">
         <div className="container mx-auto max-w-5xl px-4">
-          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12 text-amber-200"
-              style={{ WebkitTextFillColor: '#fde68a' }}>
+          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12 text-black">
             Why Choose TopRatedHRD?
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {/* Feature 1: Quality - Updated Icon Color */}
+            {/* Feature 1: Quality */}
             <div className="flex flex-col items-center text-center">
-              <Award className="h-10 w-10 mb-4 text-amber-300" style={{ WebkitTextFillColor: '#fcd34d' }}/>
-              <h3 className="text-xl font-semibold mb-2 text-amber-200" style={{ WebkitTextFillColor: '#fde68a' }}>Uncompromising Quality</h3>
-              <p className="text-sm text-muted-foreground text-amber-100" style={{ WebkitTextFillColor: '#fef3c7' }}>
+              <Award className="h-10 w-10 mb-4 text-amber-200"/>
+              <h3 className="text-xl font-semibold mb-2 text-black">Uncompromising Quality</h3>
+              <p className="text-sm text-gray-600">
                 We use premium materials and meticulous craftsmanship for lasting results.
               </p>
             </div>
-            {/* Feature 2: Customer Focus - Updated Icon Color */}
+            {/* Feature 2: Customer Focus */}
             <div className="flex flex-col items-center text-center">
-              <Users className="h-10 w-10 mb-4 text-amber-300" style={{ WebkitTextFillColor: '#fcd34d' }}/>
-              <h3 className="text-xl font-semibold mb-2 text-amber-200" style={{ WebkitTextFillColor: '#fde68a' }}>Client-Centric Approach</h3>
-              <p className="text-sm text-muted-foreground text-amber-100" style={{ WebkitTextFillColor: '#fef3c7' }}>
+              <Users className="h-10 w-10 mb-4 text-amber-200"/>
+              <h3 className="text-xl font-semibold mb-2 text-black">Client-Centric Approach</h3>
+              <p className="text-sm text-gray-600">
                 Your vision is our priority. We collaborate closely from concept to completion.
               </p>
             </div>
-            {/* Feature 3: Timeliness - Updated Icon Color */}
+            {/* Feature 3: Timeliness */}
             <div className="flex flex-col items-center text-center">
-              <Clock className="h-10 w-10 mb-4 text-amber-300" style={{ WebkitTextFillColor: '#fcd34d' }}/>
-              <h3 className="text-xl font-semibold mb-2 text-amber-200" style={{ WebkitTextFillColor: '#fde68a' }}>Reliable & On Time</h3>
-              <p className="text-sm text-muted-foreground text-amber-100" style={{ WebkitTextFillColor: '#fef3c7' }}>
+              <Clock className="h-10 w-10 mb-4 text-amber-200"/>
+              <h3 className="text-xl font-semibold mb-2 text-black">Reliable & On Time</h3>
+              <p className="text-sm text-gray-600">
                 We respect your time and stick to agreed schedules, ensuring a smooth process.
               </p>
             </div>
           </div>
         </div>
       </section>
-      {/* Services Section - Now Dynamic, Minimal Links with Icons */}
-      <section id="services" className="w-full py-12 md:py-24 bg-black">
-        <div className="container mx-auto max-w-5xl px-4">
-          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12 text-amber-200 relative z-20"
-              style={{ WebkitTextFillColor: '#fde68a' }}>
+
+      {/* Services Section - White */}
+      <section id="services" className="w-full py-12 md:py-24 bg-white border-t border-amber-200">
+        <div className="container mx-auto max-w-6xl px-4">
+          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12 text-black relative z-20">
             Our Services
           </h2>
-          <div className="flex flex-col items-center space-y-4">
-            {servicesData.map((service: ServiceData) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="flex items-center space-x-3 text-xl text-amber-300 hover:text-amber-100 transition-colors duration-200 group relative z-20"
-                style={{ WebkitTextFillColor: '#fcd34d' }}
-              >
-                <span className="flex items-center space-x-3">
-                  <ChevronRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-                  <span style={{ WebkitTextFillColor: 'inherit' }}>{service.title}</span>
-                </span>
-              </Link>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Kitchen Remodeling Card */}
+            <Link
+              href="/services/kitchen-remodeling"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src="/images/kitchen1.jpg"
+                  alt="Kitchen Remodeling"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-semibold text-white mb-2">Kitchen Remodeling</h3>
+                <p className="text-amber-200">Transform your kitchen into a modern masterpiece</p>
+              </div>
+            </Link>
+
+            {/* Bathroom Remodeling Card */}
+            <Link
+              href="/services/bathroom-remodeling"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src="/images/bath2.jpg"
+                  alt="Bathroom Remodeling"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-semibold text-white mb-2">Bathroom Remodeling</h3>
+                <p className="text-amber-200">Create your perfect bathroom sanctuary</p>
+              </div>
+            </Link>
+
+            {/* Roofing Card */}
+            <Link
+              href="/services/roofing"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src="/images/roof1.jpg"
+                  alt="Roofing Services"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-semibold text-white mb-2">Roofing Services</h3>
+                <p className="text-amber-200">Expert roofing solutions for your home</p>
+              </div>
+            </Link>
+
+            {/* ADU/Home Addition Card */}
+            <Link
+              href="/services/adu-addition"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src="/images/kitchen2.jpg"
+                  alt="ADU & Home Additions"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-semibold text-white mb-2">ADU & Home Additions</h3>
+                <p className="text-amber-200">Expand your living space beautifully</p>
+              </div>
+            </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section - White */}
+      <section className="w-full py-16 md:py-24 bg-white border-t border-amber-200">
+        <div className="container mx-auto max-w-5xl px-4 text-center">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-black mb-6">
+            Ready to Transform Your Space?
+          </h2>
+          <p className="mx-auto max-w-[600px] text-gray-600 md:text-lg mb-8">
+            Let&apos;s discuss your vision and make it a reality.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-3 text-lg font-medium bg-amber-200 text-black hover:bg-amber-100 transition-colors duration-200 rounded-lg"
+          >
+            Get Started Today
+          </Link>
         </div>
       </section>
     </>

@@ -44,96 +44,72 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.147 0.004 49.25);
+  --background: oklch(1 0 0); /* White */
+  --foreground: oklch(0.147 0.004 49.25); /* Black */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.147 0.004 49.25);
-  --primary: oklch(0.216 0.006 56.043);
-  --primary-foreground: oklch(0.985 0.001 106.423);
-  --secondary: oklch(0.97 0.001 106.424);
-  --secondary-foreground: oklch(0.216 0.006 56.043);
+  --primary: oklch(1 0 0); /* White */
+  --primary-foreground: oklch(0.147 0.004 49.25); /* Black */
+  --secondary: oklch(0.147 0.004 49.25); /* Black */
+  --secondary-foreground: oklch(0.95 0.124 83.87); /* Amber 200 */
   --muted: oklch(0.97 0.001 106.424);
   --muted-foreground: oklch(0.553 0.013 58.071);
-  --accent: oklch(0.97 0.001 106.424);
-  --accent-foreground: oklch(0.216 0.006 56.043);
+  --accent: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --accent-foreground: oklch(0.147 0.004 49.25); /* Black */
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.923 0.003 48.717);
   --input: oklch(0.923 0.003 48.717);
-  --ring: oklch(0.709 0.01 56.259);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0.001 106.423);
-  --sidebar-foreground: oklch(0.147 0.004 49.25);
-  --sidebar-primary: oklch(0.216 0.006 56.043);
-  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-accent: oklch(0.97 0.001 106.424);
-  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --ring: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --chart-1: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --chart-2: oklch(0.147 0.004 49.25); /* Black */
+  --chart-3: oklch(0.85 0.124 83.87); /* Lighter Amber */
+  --chart-4: oklch(0.25 0.004 49.25); /* Dark Gray */
+  --chart-5: oklch(0.98 0.124 83.87); /* Very Light Amber */
+  --sidebar: oklch(1 0 0); /* White */
+  --sidebar-foreground: oklch(0.147 0.004 49.25); /* Black */
+  --sidebar-primary: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --sidebar-primary-foreground: oklch(0.147 0.004 49.25); /* Black */
+  --sidebar-accent: oklch(0.147 0.004 49.25); /* Black */
+  --sidebar-accent-foreground: oklch(0.95 0.124 83.87); /* Amber 200 */
   --sidebar-border: oklch(0.923 0.003 48.717);
-  --sidebar-ring: oklch(0.709 0.01 56.259);
+  --sidebar-ring: oklch(0.95 0.124 83.87); /* Amber 200 */
 }
 
-/* Dark mode using Black, Gold, and Gray */
+/* Dark mode using Black, Gold, and White */
 .dark {
-  /* Define the gradient - REMOVED */
-  /* --background-gradient: linear-gradient(to right, #B48811, #A2790D, #EBD197); */
-
-  /* Base Colors */
-  --background: #121212; /* Use original Near Black */
-  --foreground: #FAF0E6; /* Restore Linen (Light Off-White/Cream) */
-
-  /* Card */
-  --card: #1E1E1E; /* Use original Dark Gray Card */
-  --card-foreground: var(--foreground); /* Use main foreground color */
-
-  /* Popover */
-  --popover: #242424; /* Use original slightly lighter dark gray */
-  --popover-foreground: var(--foreground); /* Use main foreground color */
-
-  /* Primary (Gold) - Using Hex */
-  --primary: #DAA520; /* Goldenrod */
-  --primary-foreground: #121212; /* Dark text on Gold */
-
-  /* Secondary (Dark Gray/Near Black) */
-  --secondary: #2A2A2A; /* Darker Gray - Keep for contrast if needed */
-  --secondary-foreground: #DAA520; /* Gold text on Dark Gray */
-
-  /* Muted (Gray) */
-  --muted: #2A2A2A; /* Darker Medium Gray - Keep for contrast if needed */
-  --muted-foreground: #A07C1E; /* Muted Gold */
-
-  /* Accent (Gold) - Using RGBA for transparency */
-  --accent: rgba(218, 165, 32, 0.2); /* Goldenrod w/ 20% opacity */
-  --accent-foreground: #FDB813; /* Slightly brighter gold */
-
-  /* Destructive */
-  --destructive: #B91C1C; /* Red-700 */
-
-  /* Border, Input, Ring */
-  --border: #333333; /* Dark Gray border */
-  --input: #2A2A2A; /* Darker Medium Gray input - Keep distinct background */
-  --ring: rgba(218, 165, 32, 0.5); /* Goldenrod w/ 50% opacity */
-
-  /* Chart Colors (Gold/Dark scale) */
-  --chart-1: #DAA520;  /* Gold */
-  --chart-2: #B8860B;  /* Darker Gold */
-  --chart-3: #2A2A2A;  /* Very Dark Gray */
-  --chart-4: #8B7500;  /* Darkest Gold */
-  --chart-5: #FADA5E;  /* Lighter Gold (Royal Yellow) */
-
-  /* Sidebar Colors */
-  --sidebar: #1E1E1E; /* Use original Dark Gray */
-  --sidebar-foreground: var(--foreground); /* Use main foreground color */
-  --sidebar-primary: #DAA520; /* Gold */
-  --sidebar-primary-foreground: #121212; /* Dark text */
-  --sidebar-accent: #2A2A2A; /* Dark Gray */
-  --sidebar-accent-foreground: #DAA520; /* Gold */
-  --sidebar-border: #333333; /* Dark Gray */
-  --sidebar-ring: rgba(218, 165, 32, 0.5); /* Gold */
+  --background: oklch(0.147 0.004 49.25); /* Black */
+  --foreground: oklch(1 0 0); /* White */
+  --card: oklch(0.2 0.004 49.25); /* Slightly lighter black */
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.2 0.004 49.25);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --primary-foreground: oklch(0.147 0.004 49.25);
+  --secondary: oklch(1 0 0); /* White */
+  --secondary-foreground: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --muted: oklch(0.2 0.004 49.25);
+  --muted-foreground: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --accent: oklch(1 0 0);
+  --accent-foreground: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.3 0.004 49.25);
+  --input: oklch(0.2 0.004 49.25);
+  --ring: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --chart-1: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --chart-2: oklch(1 0 0);
+  --chart-3: oklch(0.85 0.124 83.87);
+  --chart-4: oklch(0.95 0 0);
+  --chart-5: oklch(0.75 0.124 83.87);
+  --sidebar: oklch(0.2 0.004 49.25);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --sidebar-primary-foreground: oklch(0.147 0.004 49.25);
+  --sidebar-accent: oklch(1 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0.124 83.87); /* Amber 200 */
+  --sidebar-border: oklch(0.3 0.004 49.25);
+  --sidebar-ring: oklch(0.95 0.124 83.87); /* Amber 200 */
 }
 
 @layer base {
