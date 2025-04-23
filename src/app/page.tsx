@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Image Carousel Section - White */}
-      <section className="w-full py-8 md:py-12 bg-white border-t border-amber-200">
+      <section className="w-full py-8 md:py-12 bg-black border-t border-amber-200">
         <ImageCarousel imagePaths={carouselImages} />
       </section>
 
@@ -179,18 +179,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA Section - White */}
-      <section className="w-full py-16 md:py-24 bg-white border-t border-amber-200">
+      {/* Final CTA Section - Amber */}
+      <section className="w-full py-16 md:py-24 bg-amber-200 border-t border-amber-300">
         <div className="container mx-auto max-w-5xl px-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-black mb-6">
             Ready to Transform Your Space?
           </h2>
-          <p className="mx-auto max-w-[600px] text-gray-600 md:text-lg mb-8">
+          <p className="mx-auto max-w-[600px] text-gray-700 md:text-lg mb-8">
             Let&apos;s discuss your vision and make it a reality.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3 text-lg font-medium bg-amber-200 text-black hover:bg-amber-100 transition-colors duration-200 rounded-lg"
+            className="inline-flex items-center px-8 py-3 text-lg font-medium bg-black text-amber-200 hover:bg-gray-800 transition-colors duration-200 rounded-lg"
           >
             Get Started Today
           </Link>

@@ -21,7 +21,7 @@ export default function ServicesListPageReimagined() {
           <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl mb-8">
             Top Rated HRD delivers exceptional craftsmanship and personalized service across a range of remodeling and construction projects.
           </p>
-          <Button asChild size="lg" variant="outline" className="border-amber-200 bg-white text-amber-200 hover:bg-amber-200 hover:text-black">
+          <Button asChild size="lg" variant="outline" className="border-amber-200 bg-black text-amber-200 hover:bg-amber-200 hover:text-white">
             <Link href="/contact">Get a Free Consultation</Link>
           </Button>
         </div>
@@ -31,30 +31,30 @@ export default function ServicesListPageReimagined() {
       <ScrollingLottieSection />
 
       {/* === Why Choose Us Section === */}
-      <section className="w-full py-16 md:py-20 lg:py-24 bg-white border-t border-amber-200">
+      <section className="w-full py-16 md:py-20 lg:py-24 bg-black border-t border-amber-200">
         <div className="container mx-auto max-w-5xl px-4">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-black">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-white">
             Why Partner with Top Rated HRD?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg border border-amber-200">
+            <div className="flex flex-col items-center p-4 bg-black rounded-lg shadow-lg">
               <Award className="h-12 w-12 text-amber-200 mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-black">Quality Craftsmanship</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-semibold mb-2 text-white">Quality Craftsmanship</h3>
+              <p className="text-gray-300 text-sm">
                 We use premium materials and meticulous techniques for lasting results.
               </p>
             </div>
-            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg border border-amber-200">
+            <div className="flex flex-col items-center p-4 bg-black rounded-lg shadow-lg">
               <Users className="h-12 w-12 text-amber-200 mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-black">Experienced Team</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-semibold mb-2 text-white">Experienced Team</h3>
+              <p className="text-gray-300 text-sm">
                 Our skilled professionals bring years of expertise to every project.
               </p>
             </div>
-            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg border border-amber-200">
+            <div className="flex flex-col items-center p-4 bg-black rounded-lg shadow-lg">
               <CheckCircle className="h-12 w-12 text-amber-200 mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-black">Reliable & Transparent</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-semibold mb-2 text-white">Reliable & Transparent</h3>
+              <p className="text-gray-300 text-sm">
                 We prioritize clear communication and dependable project execution.
               </p>
             </div>
@@ -74,15 +74,15 @@ export default function ServicesListPageReimagined() {
       </section>
 
       {/* === Call to Action Section === */}
-      <section className="w-full py-16 md:py-24 lg:py-32 bg-white border-t border-amber-200">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-amber-200 border-t border-amber-300">
         <div className="container mx-auto max-w-5xl px-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6 text-black">
             Ready to Start Your Project?
           </h2>
-          <p className="mx-auto max-w-[600px] md:text-lg mb-8 text-gray-600">
+          <p className="mx-auto max-w-[600px] md:text-lg mb-8 text-gray-700">
             Let&apos;s discuss how Top Rated HRD can bring your home renovation dreams to life. Contact us today for a free, no-obligation consultation.
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-amber-200 text-black hover:bg-amber-100">
+          <Button asChild size="lg" variant="secondary" className="bg-black text-amber-200 hover:bg-amber-200 hover:text-white border-2 border-black">
             <Link href="/contact">Request Your Free Quote</Link>
           </Button>
         </div>

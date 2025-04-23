@@ -42,7 +42,6 @@ export default function PortfolioSwiperCarousel({ images, isFullscreen = false }
         }`}
         style={{
           // Set Swiper CSS variables for theme colors (gold)
-          // @ts-expect-error // Use expect-error instead of ignore
           '--swiper-pagination-color': 'var(--primary)', // Active pagination bullet color
           '--swiper-navigation-color': 'var(--primary)', // Default arrow color (will be overridden by custom elements)
         } as React.CSSProperties}

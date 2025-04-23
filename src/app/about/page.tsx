@@ -19,7 +19,7 @@ export default function AboutPage() {
       </section>
       {/* Main Content Section */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto max-w-4xl px-4 space-y-12">
+        <div className="container mx-auto max-w-4xl px-4 ">
           {/* Our Story */}
           <div>
             <h2 className="text-3xl font-semibold tracking-tight mb-4 flex items-center text-black">
