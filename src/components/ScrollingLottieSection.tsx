@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, forwardRef } from 'react';
 import Lottie from 'lottie-react';
 import { useInView } from 'react-intersection-observer';
 
@@ -69,14 +69,102 @@ const animationSteps: AnimationStep[] = [
   }
 ];
 
+const AnimationBlock = forwardRef<HTMLDivElement, {
+  step: AnimationStep;
+  index: number;
+  isActive: boolean;
+  setActiveStep: (index: number) => void;
+}>(({ step, index, isActive, setActiveStep }, ref) => {
+  const [animationData, setAnimationData] = useState<LottieAnimationData | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  
+  const { ref: inViewRef } = useInView({
+    threshold: 0.5,
+    onChange: (inView) => {
+      if (inView) {
+        setActiveStep(index);
+      }
+    }
+  });
+
+  // Merge the refs
+  const setRefs = (element: HTMLDivElement | null) => {
+    if (typeof ref === 'function') {
+      ref(element);
+    } else if (ref) {
+      ref.current = element;
+    }
+    inViewRef(element);
+  };
+
+  useEffect(() => {
+    const loadAnimation = async () => {
+      try {
+        const response = await fetch(step.animationPath);
+        if (!response.ok) throw new Error('Failed to load animation');
+        const data = await response.json();
+        setAnimationData(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load animation');
+      }
+    };
+
+    loadAnimation();
+  }, [step.animationPath]);
+
+  if (error) {
+    return (
+      <div ref={setRefs} className="text-red-600 text-center p-8">
+        Error loading animation: {error}
+      </div>
+    );
+  }
+
+  if (!animationData) {
+    return (
+      <div ref={setRefs} className="text-gray-600 text-center p-8">
+        Loading animation...
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={setRefs}
+      className={`lottie-animation transition-opacity duration-500 ${
+        isActive ? 'opacity-100' : 'opacity-30'
+      }`}
+    >
+      <div className="aspect-square max-w-2xl mx-auto">
+        <Lottie
+          animationData={animationData}
+          loop={true}
+          autoplay={true}
+          className="w-full h-full"
+        />
+      </div>
+      <div className="mobile-caption lg:hidden mt-4 text-center">
+        <h3 className="text-xl font-semibold text-black mb-2">
+          {step.title}
+        </h3>
+        <p className="text-gray-600">
+          {step.description}
+        </p>
+      </div>
+    </div>
+  );
+});
+
+AnimationBlock.displayName = 'AnimationBlock';
+
 export function ScrollingLottieSection() {
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const animationRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const scrollToAnimation = (index: number) => {
-    const animations = document.querySelectorAll('.lottie-animation');
-    if (animations[index]) {
-      animations[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (animationRefs.current[index]) {
+      animationRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
@@ -131,92 +219,14 @@ export function ScrollingLottieSection() {
                 index={index}
                 isActive={activeStep === index}
                 setActiveStep={setActiveStep}
+                ref={(el) => {
+                  animationRefs.current[index] = el;
+                }}
               />
             ))}
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function AnimationBlock({ 
-  step, 
-  index, 
-  isActive, 
-  setActiveStep 
-}: { 
-  step: AnimationStep; 
-  index: number; 
-  isActive: boolean;
-  setActiveStep: (index: number) => void;
-}) {
-  const [animationData, setAnimationData] = useState<LottieAnimationData | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  
-  const { ref } = useInView({
-    threshold: 0.5,
-    onChange: (inView) => {
-      if (inView) {
-        setActiveStep(index);
-      }
-    }
-  });
-
-  useEffect(() => {
-    const loadAnimation = async () => {
-      try {
-        const response = await fetch(step.animationPath);
-        if (!response.ok) throw new Error('Failed to load animation');
-        const data = await response.json();
-        setAnimationData(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load animation');
-      }
-    };
-
-    loadAnimation();
-  }, [step.animationPath]);
-
-  if (error) {
-    return (
-      <div ref={ref} className="text-red-600 text-center p-8">
-        Error loading animation: {error}
-      </div>
-    );
-  }
-
-  if (!animationData) {
-    return (
-      <div ref={ref} className="text-gray-600 text-center p-8">
-        Loading animation...
-      </div>
-    );
-  }
-
-  return (
-    <div
-      ref={ref}
-      className={`lottie-animation transition-opacity duration-500 ${
-        isActive ? 'opacity-100' : 'opacity-30'
-      }`}
-    >
-      <div className="aspect-square max-w-2xl mx-auto">
-        <Lottie
-          animationData={animationData}
-          loop={true}
-          autoplay={true}
-          className="w-full h-full"
-        />
-      </div>
-      <div className="mobile-caption lg:hidden mt-4 text-center">
-        <h3 className="text-xl font-semibold text-black mb-2">
-          {step.title}
-        </h3>
-        <p className="text-gray-600">
-          {step.description}
-        </p>
-      </div>
-    </div>
   );
 } 
