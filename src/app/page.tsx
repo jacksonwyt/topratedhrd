@@ -1,9 +1,8 @@
 "use client"
 
 import React from 'react';
-import { Award, Users, Clock, ChevronRight } from 'lucide-react';
+import { Award, Users, Clock } from 'lucide-react';
 import Link from 'next/link';
-import { servicesData, ServiceData } from '@/lib/data';
 import ImageCarousel from '@/components/ImageCarousel';
 import Image from 'next/image';
 

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Users, Wrench, Award } from 'lucide-react';
 import { ScrollingLottieSection } from '@/components/ScrollingLottieSection';
