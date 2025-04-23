@@ -1,15 +1,9 @@
 "use client";
 
 import Link from 'next/link';
-import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Users, Wrench, Award } from 'lucide-react';
 import { ScrollingLottieSection } from '@/components/ScrollingLottieSection';
-
-export const metadata: Metadata = {
-  title: 'Expert Home Remodeling & Construction Services | Top Rated HRD',
-  description: 'Discover Top Rated HRD\'s premier home remodeling services: kitchens, bathrooms, roofing, ADUs, and more. Quality craftsmanship and exceptional service.',
-};
 
 export default function ServicesListPageReimagined() {
   return (
