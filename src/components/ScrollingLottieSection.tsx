@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, forwardRef } from 'react';
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';  // Remove static import
 import { useInView } from 'react-intersection-observer';
+import dynamic from 'next/dynamic'; // Import dynamic
+
+// Dynamically import Lottie component with SSR disabled
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 interface AnimationStep {
   title: string;
