@@ -10,7 +10,7 @@ import Image from 'next/image';
 const carouselImages = [
   '/images/kitchen/kitchen1.jpg',
   '/images/kitchen/kitchen2.jpg',
-  '/images/bath/bath1.JPG',
+  '/images/bath/bath1.jpg',
   '/images/bath/bath2.jpg',
   '/images/bath/bath3.JPG',
   '/images/bath/bath4.JPG',

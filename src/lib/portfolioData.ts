@@ -27,7 +27,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   // Add more kitchen images if available
   {
-    src: "/images/bath/bath1.JPG",
+    src: "/images/bath/bath1.jpg",
     alt: "Luxury Bathroom Remodel with Walk-in Shower",
     category: "Bathroom",
   },

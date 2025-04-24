@@ -68,7 +68,7 @@ export const servicesData: ServiceData[] = [
     headline: 'Expert Bathroom Remodeling Services in San Diego',
     description: 'Transform your bathroom into a luxurious and functional retreat with Top Rated HRD. Our all-inclusive approach, backed by 100+ years of combined team experience, ensures a seamless remodel from concept to completion.',
     heroImagePlaceholder: 'https://placehold.co/1200x500/a5f3fc/0891b2?text=Modern+Bathroom',
-    cardImageUrl: '/images/bath/bath1.JPG',
+    cardImageUrl: '/images/bath/bath1.jpg',
     galleryImages: ['/images/bath/bath1.jpg', '/images/bath/bath2.jpg', '/images/bath/bath3.JPG', '/images/bath/bath4.JPG', '/images/bath/bath5.JPG', '/images/bath/bath6.JPG', '/images/bath/bath7.JPG', '/images/bath/bath8.JPG', '/images/bath/bath9.JPG', '/images/bath/bath10.JPG'],
     features: [
       { title: 'All-Inclusive Service', description: 'From initial design consultation to final installation.', icon: 'CheckCircle' },
