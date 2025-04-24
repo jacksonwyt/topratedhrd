@@ -39,8 +39,8 @@ export const servicesData: ServiceData[] = [
     headline: 'Quality Kitchen Remodeling: From Design to Installation',
     description: 'Trusted San Diego County expert with 100+ years combined team experience, specializing in comprehensive, tailored kitchen transformations. We cover all phases, ensuring a space that reflects your style and needs.',
     heroImagePlaceholder: 'https://placehold.co/1200x500/e2e8f0/64748b?text=Modern+Kitchen',
-    cardImageUrl: '/images/kitchen1.jpg',
-    galleryImages: ['/images/kitchen1.jpg', '/images/kitchen2.jpg'],
+    cardImageUrl: '/images/kitchen/kitchen1.jpg',
+    galleryImages: ['/images/kitchen/kitchen1.jpg', '/images/kitchen/kitchen2.jpg'],
     features: [
       { title: '100+ Years Combined Experience', description: 'Leveraging decades of expertise for your project.', icon: 'Gem' },
       { title: 'Client-Centric Approach', description: 'Focused on clear communication and your satisfaction.', icon: 'Workflow' },
@@ -68,8 +68,8 @@ export const servicesData: ServiceData[] = [
     headline: 'Expert Bathroom Remodeling Services in San Diego',
     description: 'Transform your bathroom into a luxurious and functional retreat with Top Rated HRD. Our all-inclusive approach, backed by 100+ years of combined team experience, ensures a seamless remodel from concept to completion.',
     heroImagePlaceholder: 'https://placehold.co/1200x500/a5f3fc/0891b2?text=Modern+Bathroom',
-    cardImageUrl: '/images/bath1.JPG',
-    galleryImages: ['/images/bath1.jpg', '/images/bath2.jpg', '/images/bath3.JPG', '/images/bath4.JPG'],
+    cardImageUrl: '/images/bath/bath1.JPG',
+    galleryImages: ['/images/bath/bath1.jpg', '/images/bath/bath2.jpg', '/images/bath/bath3.JPG', '/images/bath/bath4.JPG', '/images/bath/bath5.JPG', '/images/bath/bath6.JPG', '/images/bath/bath7.JPG', '/images/bath/bath8.JPG', '/images/bath/bath9.JPG', '/images/bath/bath10.JPG'],
     features: [
       { title: 'All-Inclusive Service', description: 'From initial design consultation to final installation.', icon: 'CheckCircle' },
       { title: 'Expert Guidance', description: 'Navigating material choices and design options.', icon: 'Gem' },
@@ -95,8 +95,8 @@ export const servicesData: ServiceData[] = [
     headline: 'Professional Roofing Services in San Diego',
     description: 'Top Rated HRD provides comprehensive roofing solutions in San Diego, including installation, repair, maintenance, and replacement. We ensure expert craftsmanship and use quality materials for lasting protection.',
     heroImagePlaceholder: 'https://placehold.co/1200x500/fecaca/991b1b?text=Roofing+Project',
-    cardImageUrl: '/images/roof1.jpg',
-    galleryImages: ['/images/roof1.jpg', '/images/roof2.jpg', '/images/roof3.jpg', '/images/roof4.jpg', '/images/roof5.jpg', '/images/roof6.jpg'],
+    cardImageUrl: '/images/roof/roof1.jpg',
+    galleryImages: ['/images/roof/roof1.jpg', '/images/roof/roof2.jpg', '/images/roof/roof3.jpg', '/images/roof/roof4.jpg', '/images/roof/roof5.jpg', '/images/roof/roof6.jpg'],
     features: [
       { title: 'Residential & Commercial Expertise', description: 'Protecting homes and businesses with tailored roofing solutions.', icon: 'Building' },
       { title: 'Emergency Repair & Custom Design', description: 'Ready for urgent repairs and crafting unique roof designs.', icon: 'Wrench' },
@@ -125,8 +125,8 @@ export const servicesData: ServiceData[] = [
     headline: 'Expand Your Home with ADUs & Room Additions',
     description: 'Whether you need an Accessory Dwelling Unit (ADU) for rental income or family, or simply want to add more space to your home, Top Rated HRD offers expert design and construction services for seamless additions.',
     heroImagePlaceholder: 'https://placehold.co/1200x500/d1fae5/065f46?text=Home+Addition',
-    cardImageUrl: '/images/skyline.jpg',
-    galleryImages: ['/images/skyline.jpg'],
+    cardImageUrl: '/images/addition/addition1.JPG',
+    galleryImages: ['/images/addition/addition1.JPG'],
     features: [
       { title: 'Custom Design Solutions', description: 'Tailoring additions to match your home\'s style and needs.', icon: 'Home' },
       { title: 'Permitting Assistance', description: 'Navigating the permit process for ADUs and additions.', icon: 'Building' },

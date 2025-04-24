@@ -8,18 +8,24 @@ import Image from 'next/image';
 
 // Define the image paths
 const carouselImages = [
-  '/images/kitchen1.jpg',
-  '/images/kitchen2.jpg',
-  '/images/bath1.JPG',
-  '/images/bath2.jpg',
-  '/images/bath3.JPG',
-  '/images/bath4.JPG',
-  '/images/roof1.jpg',
-  '/images/roof2.jpg',
-  '/images/roof3.jpg',
-  '/images/roof4.jpg',
-  '/images/roof5.jpg',
-  '/images/roof6.jpg',
+  '/images/kitchen/kitchen1.jpg',
+  '/images/kitchen/kitchen2.jpg',
+  '/images/bath/bath1.JPG',
+  '/images/bath/bath2.jpg',
+  '/images/bath/bath3.JPG',
+  '/images/bath/bath4.JPG',
+  '/images/bath/bath5.JPG',
+  '/images/bath/bath6.JPG',
+  '/images/bath/bath7.JPG',
+  '/images/bath/bath8.JPG',
+  '/images/bath/bath9.JPG',
+  '/images/bath/bath10.JPG',
+  '/images/roof/roof1.jpg',
+  '/images/roof/roof2.jpg',
+  '/images/roof/roof3.jpg',
+  '/images/roof/roof4.jpg',
+  '/images/roof/roof5.jpg',
+  '/images/roof/roof6.jpg',
 ];
 
 export default function Home() {
@@ -111,7 +117,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
-                  src="/images/kitchen1.jpg"
+                  src="/images/kitchen/kitchen1.jpg"
                   alt="Kitchen Remodeling"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -131,7 +137,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
-                  src="/images/bath2.jpg"
+                  src="/images/bath/bath2.jpg"
                   alt="Bathroom Remodeling"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -151,7 +157,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
-                  src="/images/roof1.jpg"
+                  src="/images/roof/roof1.jpg"
                   alt="Roofing Services"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -171,7 +177,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
-                  src="/images/kitchen2.jpg"
+                  src="/images/kitchen/kitchen2.jpg"
                   alt="ADU & Home Additions"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
