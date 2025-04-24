@@ -180,7 +180,7 @@ export function ScrollingLottieSection() {
         </h2>
         <div className="scroll-section flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* Text Sidebar */}
-          <div className="text-sidebar-wrapper lg:w-2/5 lg:sticky lg:top-32 lg:self-start">
+          <div className="text-sidebar-wrapper hidden lg:block lg:w-2/5 lg:sticky lg:top-32 lg:self-start">
             <div className="text-sidebar space-y-8">
               {animationSteps.map((step, index) => (
                 <div
