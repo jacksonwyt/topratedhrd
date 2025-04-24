@@ -69,7 +69,7 @@ export const servicesData: ServiceData[] = [
     description: 'Transform your bathroom into a luxurious and functional retreat with Top Rated HRD. Our all-inclusive approach, backed by 100+ years of combined team experience, ensures a seamless remodel from concept to completion.',
     heroImagePlaceholder: 'https://placehold.co/1200x500/a5f3fc/0891b2?text=Modern+Bathroom',
     cardImageUrl: '/images/bath1.JPG',
-    galleryImages: ['/images/bath1.JPG', '/images/bath2.jpg', '/images/bath3.JPG', '/images/bath4.JPG'],
+    galleryImages: ['/images/bath1.jpg', '/images/bath2.jpg', '/images/bath3.JPG', '/images/bath4.JPG'],
     features: [
       { title: 'All-Inclusive Service', description: 'From initial design consultation to final installation.', icon: 'CheckCircle' },
       { title: 'Expert Guidance', description: 'Navigating material choices and design options.', icon: 'Gem' },
