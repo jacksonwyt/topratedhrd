@@ -1,23 +1,28 @@
+'use client';
+
 import React from 'react';
 import { servicesData, ServiceData, ServiceDetail, ServiceFeature, ServiceFAQ } from '@/lib/data';
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import Image from 'next/image';
+// import { Metadata } from 'next';
+// import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
+// Remove direct Swiper imports
+
+// Import PortfolioSwiperCarousel
+import PortfolioSwiperCarousel from '@/components/PortfolioSwiperCarousel';
+import type { PortfolioItem } from '@/lib/portfolioData';
 
 function getServiceBySlug(slug: string): ServiceData | undefined {
   return servicesData.find((service) => service.slug === slug);
 }
 
-const service = getServiceBySlug('roofing');
-export const metadata: Metadata = {
-  title: `${service?.title || 'Roofing Services'} — Top Rated HRD`,
-  description: service?.metaDescription || 'Reliable roofing services from Top Rated HRD. Installation, repair, and maintenance for lasting protection.',
-};
+// Remove Metadata export
+// const service = getServiceBySlug('roofing');
+// export const metadata: Metadata = { ... };
 
 export default function RoofingPage() {
   const service = getServiceBySlug('roofing');
@@ -25,6 +30,17 @@ export default function RoofingPage() {
   if (!service) {
     notFound();
   }
+
+  // Prepare images for PortfolioSwiperCarousel
+  const galleryItems: PortfolioItem[] = (service.galleryImages && service.galleryImages.length > 0
+    ? service.galleryImages
+    : [service.cardImageUrl]
+  ).map((img, index) => ({
+    src: img,
+    alt: `${service.title} ${service.galleryImages && service.galleryImages.length > 0 ? 'gallery image ' + (index + 1) : 'service image'}`,
+    category: 'Roofing'
+  }));
+
 
   return (
     <div className="bg-black text-amber-100 min-h-screen">
@@ -44,20 +60,10 @@ export default function RoofingPage() {
         </div>
       </section>
 
+      {/* Service Image Section uses PortfolioSwiperCarousel */}
       <section className="w-full py-8 md:py-12 bg-black">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="relative aspect-video overflow-hidden rounded-lg shadow-lg border border-amber-800/50 group">
-            <Image
-              src="/images/roof1.jpg"
-              alt={`${service.title} service image`}
-              fill
-              sizes="(max-width: 1200px) 90vw, 800px"
-              style={{ objectFit: 'cover' }}
-              className="transition-transform duration-500 ease-in-out group-hover:scale-105"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent group-hover:from-black/50 transition-all duration-300"></div>
-          </div>
+           <PortfolioSwiperCarousel images={galleryItems} />
         </div>
       </section>
 

@@ -54,22 +54,22 @@ const animationSteps: AnimationStep[] = [
   {
     title: "1. Initial Consultation",
     description: "On-site visit to assess your project, take measurements, discuss design options, and provide an initial estimate aligned with your budget.",
-    animationPath: "/animations/Carpenter Worker-2.json"
+    animationPath: "/animations/Consultation.json"
   },
   {
     title: "2. Design Presentation",
     description: "Review our detailed 3D CAD designs, project timeline, and material selections to visualize your transformed space.",
-    animationPath: "/animations/Furniture Worker.json"
+    animationPath: "/animations/Presentation.json"
   },
   {
     title: "3. Project Planning",
     description: "Finalize design modifications, material selections, and establish concrete start and completion dates.",
-    animationPath: "/animations/Plumber Bath Sink Water Repair.json"
+    animationPath: "/animations/PlanningProject.json"
   },
   {
     title: "4. Construction Management",
     description: "Dedicated project management with constant communication to ensure your complete satisfaction throughout the build.",
-    animationPath: "/animations/Color Painting Wall Service.json"
+    animationPath: "/animations/Carpenter Worker-2.json"
   }
 ];
 

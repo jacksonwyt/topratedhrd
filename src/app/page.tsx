@@ -166,7 +166,7 @@ export default function Home() {
 
             {/* ADU/Home Addition Card */}
             <Link
-              href="/services/adu-addition"
+              href="/services/adu-room-addition"
               className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="aspect-[4/3] relative overflow-hidden">

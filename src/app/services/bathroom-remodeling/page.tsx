@@ -1,24 +1,36 @@
+'use client'; // Add this at the top for client-side interaction
+
 import React from 'react';
 import { servicesData, ServiceData, ServiceDetail, ServiceFeature, ServiceFAQ } from '@/lib/data';
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import Image from 'next/image';
+// Metadata removed or handled differently for client components
+// import { Metadata } from 'next';
+// Keep Image import if needed by PortfolioSwiperCarousel or fallback, otherwise remove
+// import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, HelpCircle } from 'lucide-react'; // Or appropriate icons
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+// Import PortfolioSwiperCarousel
+import PortfolioSwiperCarousel from '@/components/PortfolioSwiperCarousel';
+import type { PortfolioItem } from '@/lib/portfolioData'; // Import PortfolioItem type
+
+// Remove direct Swiper imports
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Pagination, A11y } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 
 // Find service data by slug
 function getServiceBySlug(slug: string): ServiceData | undefined {
   return servicesData.find((service) => service.slug === slug);
 }
 
-// Define static metadata
-const service = getServiceBySlug('bathroom-remodeling');
-export const metadata: Metadata = {
-  title: `${service?.title || 'Bathroom Remodeling'} — Top Rated HRD`,
-  description: service?.metaDescription || 'Transform your bathroom with Top Rated HRD\'s expert remodeling services. Quality, style, and function combined.',
-};
+// Remove Metadata export
+// const service = getServiceBySlug('bathroom-remodeling');
+// export const metadata: Metadata = { ... };
 
 // The Service Page Component
 export default function BathroomRemodelingPage() {
@@ -27,6 +39,17 @@ export default function BathroomRemodelingPage() {
   if (!service) {
     notFound();
   }
+
+  // Prepare images for PortfolioSwiperCarousel
+  const galleryItems: PortfolioItem[] = (service.galleryImages && service.galleryImages.length > 0
+    ? service.galleryImages
+    : [service.cardImageUrl] // Use cardImageUrl as fallback if gallery is empty
+  ).map((img, index) => ({
+    src: img,
+    // Generate alt text, potentially using a different alt if it's the fallback image
+    alt: `${service.title} ${service.galleryImages && service.galleryImages.length > 0 ? 'gallery image ' + (index + 1) : 'service image'}`,
+    category: 'Bathroom' // Add the correct category
+  }));
 
   return (
     <div className="bg-black text-amber-100 min-h-screen">
@@ -47,21 +70,11 @@ export default function BathroomRemodelingPage() {
         </div>
       </section>
 
-      {/* Service Image Section */}
+      {/* Service Image Section uses PortfolioSwiperCarousel */}
       <section className="w-full py-8 md:py-12 bg-black">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="relative aspect-video overflow-hidden rounded-lg shadow-lg border border-amber-800/50 group">
-            <Image
-              src="/images/bath1.jpg"
-              alt={`${service.title} service image`}
-              fill
-              sizes="(max-width: 1200px) 90vw, 800px"
-              style={{ objectFit: 'cover' }}
-              className="transition-transform duration-500 ease-in-out group-hover:scale-105"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent group-hover:from-black/50 transition-all duration-300"></div>
-          </div>
+           {/* Render the carousel with the prepared items */}
+           <PortfolioSwiperCarousel images={galleryItems} />
         </div>
       </section>
 

@@ -1,34 +1,47 @@
+'use client'; // Add this at the top for client-side interaction
+
 import React from 'react';
 import { servicesData, ServiceData, ServiceDetail, ServiceFeature, ServiceFAQ } from '@/lib/data';
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import Image from 'next/image';
+// import { Metadata } from 'next';
+// import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, HelpCircle } from 'lucide-react'; // Or appropriate icons
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
+// Remove direct Swiper imports
+
+// Import PortfolioSwiperCarousel
+import PortfolioSwiperCarousel from '@/components/PortfolioSwiperCarousel';
+import type { PortfolioItem } from '@/lib/portfolioData'; // Import PortfolioItem type
 
 // Find service data by slug (keep helper function)
 function getServiceBySlug(slug: string): ServiceData | undefined {
   return servicesData.find((service) => service.slug === slug);
 }
 
-// Define static metadata
-const service = getServiceBySlug('kitchen-remodeling');
-export const metadata: Metadata = {
-  title: `${service?.title || 'Kitchen Remodeling'} — Top Rated HRD`,
-  description: service?.metaDescription || 'Expert kitchen remodeling services by Top Rated HRD. Transform your kitchen space with quality craftsmanship.',
-};
+// Remove Metadata export
+// const service = getServiceBySlug('kitchen-remodeling');
+// export const metadata: Metadata = { ... };
 
 // The Service Page Component
 export default function KitchenRemodelingPage() {
-  // Fetch data directly
   const service = getServiceBySlug('kitchen-remodeling');
 
   if (!service) {
-    notFound(); // Trigger 404 page if data isn't found (e.g., slug typo)
+    notFound();
   }
+
+  // Prepare images for PortfolioSwiperCarousel
+  const galleryItems: PortfolioItem[] = (service.galleryImages && service.galleryImages.length > 0
+    ? service.galleryImages
+    : [service.cardImageUrl]
+  ).map((img, index) => ({
+    src: img,
+    alt: `${service.title} ${service.galleryImages && service.galleryImages.length > 0 ? 'gallery image ' + (index + 1) : 'service image'}`,
+    category: 'Kitchen'
+  }));
 
   return (
     <div className="bg-black text-amber-100 min-h-screen">
@@ -49,21 +62,10 @@ export default function KitchenRemodelingPage() {
         </div>
       </section>
 
-      {/* Service Image Section - Keep as is, maybe add slight overlay on hover? */}
+      {/* Service Image Section uses PortfolioSwiperCarousel */}
       <section className="w-full py-8 md:py-12 bg-black">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="relative aspect-video overflow-hidden rounded-lg shadow-lg border border-amber-800/50 group">
-            <Image
-              src="/images/kitchen1.jpg"
-              alt={`${service.title} service image`}
-              fill
-              sizes="(max-width: 1200px) 90vw, 800px"
-              style={{ objectFit: 'cover' }}
-              className="transition-transform duration-500 ease-in-out group-hover:scale-105"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent group-hover:from-black/50 transition-all duration-300"></div>
-          </div>
+           <PortfolioSwiperCarousel images={galleryItems} />
         </div>
       </section>
 
