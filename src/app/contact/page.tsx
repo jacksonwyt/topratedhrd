@@ -170,20 +170,20 @@ export default function ContactPage() {
           {/* Contact Details Section - Updated Colors */}
           <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg">
              <h2 className="text-3xl font-semibold tracking-tight mb-6 flex items-center text-black">
-               <Phone className="h-6 w-6 mr-3 text-amber-200" />
+               <Phone className="h-6 w-6 mr-3 text-black" />
                Other Ways to Reach Us
              </h2>
              <div className="space-y-4 text-gray-600">
                <p className="flex items-start">
-                 <Mail className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-black" />
+                 <Mail className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-amber-100" />
                  <span>Email: <a href={`mailto:${contactEmail}`} className="text-black hover:text-amber-100 hover:underline">{contactEmail}</a></span>
                </p>
                <p className="flex items-start">
-                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-black" />
+                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-amber-100" />
                  <span>Phone: <a href={contactPhoneLink} className="text-black hover:text-amber-100 hover:underline">{contactPhone}</a></span>
                </p>
                <p className="flex items-start">
-                  <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-black" />
+                  <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-amber-100" />
                   <span>Address: {contactAddress}</span>
                </p>
              </div>
