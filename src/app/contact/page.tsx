@@ -66,7 +66,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="mt-4 text-lg md:text-xl text-gray-600">
-            Get in touch, we&apos;re here to help connect.
+            Schedule a free in home consultation.
           </p>
         </div>
       </section>

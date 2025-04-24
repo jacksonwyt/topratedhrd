@@ -32,6 +32,12 @@ const Header = () => {
             />
           </Link>
 
+          {/* Mobile Phone Number (Visible only on mobile) */}
+          <a href="tel:8883118899" className="block md:hidden text-sm text-gray-300 hover:text-white transition-colors">
+            <Phone className="h-5 w-5 inline mr-1" />
+            (888) 311-8899
+          </a>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (

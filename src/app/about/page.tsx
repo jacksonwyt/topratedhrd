@@ -48,7 +48,7 @@ export default function AboutPage() {
               Our Experienced Team
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Our strength lies in our dedicated team. We bring together a wealth of [Confirm Experience Level - e.g., decades of] collective experience in the home remodeling industry. Each member is skilled in their craft and committed to bringing your unique vision to life with precision and attention to detail. We believe that collaboration is key to achieving outstanding results.
+              Our strength lies in our dedicated team. We bring together a wealth of over 100 years of collective experience in the home remodeling industry. Each member is skilled in their craft and committed to bringing your unique vision to life with precision and attention to detail. We believe that collaboration is key to achieving outstanding results.
             </p>
             <div className="my-8 rounded-lg overflow-hidden shadow-lg">
               <Image 
