@@ -31,7 +31,7 @@ export default function AboutPage() {
             </p>
             <div className="my-8 rounded-lg overflow-hidden shadow-lg">
               <Image 
-                src="/images/kitchen1.jpg" 
+                src="/images/kitchen/kitchen1.jpg" 
                 alt="Modern kitchen remodel example by TopRatedHRD"
                 width={800}
                 height={500}
@@ -52,7 +52,7 @@ export default function AboutPage() {
             </p>
             <div className="my-8 rounded-lg overflow-hidden shadow-lg">
               <Image 
-                src="/images/bath2.jpg" 
+                src="/images/bath/bath2.jpg" 
                 alt="Stylish bathroom renovation example by TopRatedHRD"
                 width={800}
                 height={500}
