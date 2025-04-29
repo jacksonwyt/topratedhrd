@@ -59,8 +59,8 @@ export default function ContactPage() {
   return (
     // Apply theme: white background, black text
     <div className="bg-white text-black min-h-screen">
-      {/* Page Header Section - Updated Colors */}
-      <section className="py-20 md:py-24 lg:py-28 bg-white"> 
+      {/* Page Header Section - Kept White Background */}
+      <section className="py-20 md:py-24 lg:py-28 bg-white">
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-black">
             Contact Us
@@ -71,19 +71,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Main Content Section - Updated Colors */}
-      <section className="py-1 pb-16 md:pb-24 bg-amber-200">
-        <div className="container mx-auto max-w-4xl px-4 space-y-12"> 
+      {/* Main Content Section - Changed to White Background */}
+      <section className="py-1 pb-16 md:pb-24 bg-white">
+        <div className="container mx-auto max-w-4xl px-4 space-y-12">
 
-          {/* Contact Form Section - Updated Colors */}
+          {/* Contact Form Section - Updated Container to Black Background */}
           <div>
-            
-            {/* Updated Form Container Styling */}
-            <div className="bg-white p-6 md:p-8 mt-12 rounded-lg border border-black/10 shadow-lg">
+            <div className="bg-black p-6 md:p-8 mt-12 rounded-lg border border-gray-700 shadow-lg"> {/* Black background */}
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
+                {/* Name Field - Label text lighter */}
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-gray-700">Name</Label>
+                  <Label htmlFor="name" className="text-gray-300">Name</Label> {/* Lighter text */}
                   <Input
                     id="name"
                     name="name"
@@ -93,13 +91,13 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-amber-200 focus:ring-amber-200"
+                    className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
 
-                {/* Email Field */}
+                {/* Email Field - Label text lighter */}
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-gray-700">Email</Label>
+                  <Label htmlFor="email" className="text-gray-300">Email</Label> {/* Lighter text */}
                   <Input
                     id="email"
                     name="email"
@@ -109,13 +107,13 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-amber-200 focus:ring-amber-200"
+                    className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
 
-                {/* Subject Field */}
+                {/* Subject Field - Label text lighter */}
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-gray-700">Subject</Label>
+                  <Label htmlFor="subject" className="text-gray-300">Subject</Label> {/* Lighter text */}
                   <Input
                     id="subject"
                     name="subject"
@@ -125,13 +123,13 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-amber-200 focus:ring-amber-200"
+                    className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
 
-                {/* Message Field */}
+                {/* Message Field - Label text lighter */}
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-gray-700">Message</Label>
+                  <Label htmlFor="message" className="text-gray-300">Message</Label> {/* Lighter text */}
                   <Textarea
                     id="message"
                     name="message"
@@ -141,24 +139,24 @@ export default function ContactPage() {
                     required
                     rows={5}
                     disabled={isSubmitting}
-                    className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-amber-200 focus:ring-amber-200"
+                    className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
 
-                {/* Submission Feedback - Adjusted Colors */}
+                {/* Submission Feedback - Adjusted Colors for Black BG */}
                 {submitStatus === 'success' && (
-                  <p className="text-sm text-green-400">Message sent successfully! We&apos;ll get back to you soon.</p> // Lighter green for dark bg
+                  <p className="text-sm text-green-400">Message sent successfully! We&apos;ll get back to you soon.</p>
                 )}
                 {submitStatus === 'error' && (
-                  <p className="text-sm text-red-400">Something went wrong. Please try again later or contact us via email/phone.</p> // Lighter red for dark bg
+                  <p className="text-sm text-red-400">Something went wrong. Please try again later or contact us via email/phone.</p>
                 )}
 
-                {/* Submit Button - Updated Styling */}
+                {/* Submit Button - White BG, Black Text */}
                 <div>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto bg-black text-amber-200 hover:bg-gray-900 focus:ring-amber-200 disabled:opacity-50"
+                    className="w-full sm:w-auto bg-white text-black hover:bg-gray-200 focus:ring-gray-500 disabled:opacity-50" /* White bg, black text */
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
@@ -167,23 +165,23 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Details Section - Updated Colors */}
-          <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-             <h2 className="text-3xl font-semibold tracking-tight mb-6 flex items-center text-black">
-               <Phone className="h-6 w-6 mr-3 text-black" />
+          {/* Contact Details Section - Black BG, Updated Text/Icon Colors */}
+          <div className="bg-black p-6 md:p-8 rounded-lg shadow-lg border border-gray-700"> {/* Black background */}
+             <h2 className="text-3xl font-semibold tracking-tight mb-6 flex items-center text-white"> {/* White text */}
+               <Phone className="h-6 w-6 mr-3 text-white" /> {/* White icon */}
                Other Ways to Reach Us
              </h2>
-             <div className="space-y-4 text-gray-600">
+             <div className="space-y-4 text-gray-400"> {/* Lighter base text */}
                <p className="flex items-start">
-                 <Mail className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-amber-100" />
-                 <span>Email: <a href={`mailto:${contactEmail}`} className="text-black hover:text-amber-100 hover:underline">{contactEmail}</a></span>
+                 <Mail className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-gray-400" /> {/* Lighter icon */}
+                 <span>Email: <a href={`mailto:${contactEmail}`} className="text-white hover:text-gray-300 hover:underline">{contactEmail}</a></span> {/* White link */}
                </p>
                <p className="flex items-start">
-                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-amber-100" />
-                 <span>Phone: <a href={contactPhoneLink} className="text-black hover:text-amber-100 hover:underline">{contactPhone}</a></span>
+                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-gray-400" /> {/* Lighter icon */}
+                 <span>Phone: <a href={contactPhoneLink} className="text-white hover:text-gray-300 hover:underline">{contactPhone}</a></span> {/* White link */}
                </p>
                <p className="flex items-start">
-                  <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-amber-100" />
+                  <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0 text-gray-400" /> {/* Lighter icon */}
                   <span>Address: {contactAddress}</span>
                </p>
              </div>
