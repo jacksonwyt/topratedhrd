@@ -22,8 +22,6 @@ export default function ContactPage() {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<string | null>(null); // 'success', 'error', or null
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,26 +32,29 @@ export default function ContactPage() {
     }));
   };
 
-  // Handle form submission
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Handle form submission - Opens user's email client
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-    console.log('Form Data Submitted:', formData);
+    console.log('Form Data for mailto:', formData);
 
-    // --- TODO: Replace this with your actual form submission logic ---
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
-      console.log('Form submitted successfully (simulated)');
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-    // --- End of submission logic placeholder ---
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}`
+    );
+
+    const mailtoLink = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+
+    // Open the user's default email client
+    window.location.href = mailtoLink;
+
+    // Optionally clear the form after attempting to open mail client
+    // setFormData({ name: '', email: '', subject: '', message: '' });
+
+    // Note: We can't reliably track if the email was actually sent from the client.
   };
 
   return (
@@ -90,7 +91,6 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    disabled={isSubmitting}
                     className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
@@ -106,7 +106,6 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    disabled={isSubmitting}
                     className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
@@ -122,7 +121,6 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    disabled={isSubmitting}
                     className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
@@ -138,27 +136,17 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    disabled={isSubmitting}
                     className="bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-gray-500 focus:ring-gray-500" /* White bg, black text, adjusted focus */
                   />
                 </div>
 
-                {/* Submission Feedback - Adjusted Colors for Black BG */}
-                {submitStatus === 'success' && (
-                  <p className="text-sm text-green-400">Message sent successfully! We&apos;ll get back to you soon.</p>
-                )}
-                {submitStatus === 'error' && (
-                  <p className="text-sm text-red-400">Something went wrong. Please try again later or contact us via email/phone.</p>
-                )}
-
-                {/* Submit Button - White BG, Black Text */}
+                {/* Submit Button - Removed disabled state and sending text */}
                 <div>
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto bg-white text-black hover:bg-gray-200 focus:ring-gray-500 disabled:opacity-50" /* White bg, black text */
+                    className="w-full sm:w-auto bg-white text-black hover:bg-gray-200 focus:ring-gray-500" /* White bg, black text */
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    Send Message
                   </Button>
                 </div>
               </form>
